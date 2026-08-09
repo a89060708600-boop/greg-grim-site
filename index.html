@@ -445,18 +445,22 @@
 
   /* ---------- досье: цензура ---------- */
   .redacted{
-    background:#2b303a;
-    color:transparent;
+    position:relative;
     padding:0 .35em;
     cursor:pointer;
-    user-select:none;
-    transition:color .35s,background .35s;
-  }
-  .redacted:hover,.redacted:focus-visible{
-    background:rgba(157,52,56,.25);
     color:var(--paper);
-    user-select:auto;
   }
+  .redacted::after{
+    content:"";
+    position:absolute;inset:-1px -2px;
+    background:#2b303a;
+    border-left:2px solid #3a404c;
+    transition:opacity .4s;
+    pointer-events:none;
+  }
+  .redacted:hover::after,
+  .redacted:focus::after,
+  .redacted:focus-visible::after{opacity:0}
   .dossier-note{
     margin-top:.9rem;padding-top:.7rem;
     border-top:1px dashed var(--line);
@@ -660,7 +664,7 @@
           Средний рейтинг: <b>★ 5,0</b><br>
           Особые приметы: <b class="redacted" tabindex="0">читателей не щадит</b><br>
           Местонахождение: <b class="redacted" tabindex="0">в темноте, за письменным столом</b>
-          <div class="dossier-note">// часть сведений засекречена. наведите курсор.</div>
+          <div class="dossier-note">// две строки выше закрашены цензурой — коснитесь их, чтобы прочитать</div>
         </aside>
       </div>
     </div>
