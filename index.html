@@ -617,8 +617,8 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">
-            <div class="cover cover--img">
-              <video class="cover-img" src="assets/video/mrak-cover.mp4" poster="assets/covers/mrak-poster.webp" muted loop playsinline autoplay preload="metadata" aria-label="Живая обложка романа «Мрак, друг мой»"></video>
+            <div class="cover cover--img" data-live="assets/video/mrak-cover.mp4">
+              <img class="cover-img" src="assets/covers/mrak-poster.webp" alt="Обложка романа «Мрак, друг мой»" loading="lazy">
               <span class="badge">в работе</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
@@ -858,9 +858,10 @@
     bands.forEach(function(v){ io.observe(v); });
   })();
 
-  // оживающие обложки: при наведении статика превращается в видео
+  // оживающие обложки: на десктопе — при наведении, на сенсорных — когда книга в поле зрения
   (function(){
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var touch = window.matchMedia("(pointer: coarse)").matches;
     document.querySelectorAll(".cover[data-live]").forEach(function(cover){
       var link = cover.closest(".cover-link");
       var img = cover.querySelector("img.cover-img");
@@ -880,15 +881,26 @@
         img.insertAdjacentElement("afterend", v);
         return v;
       }
-      link.addEventListener("pointerenter", function(){
+      function wake(){
         var vv = ensure();
         if (!vv) return;
         vv.play().catch(function(){});
         vv.classList.add("on");
-      });
-      link.addEventListener("pointerleave", function(){
+      }
+      function still(){
         if (v) { v.classList.remove("on"); v.pause(); }
-      });
+      }
+      if (touch && "IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(en){
+            if (en.intersectionRatio >= 0.6) wake(); else still();
+          });
+        }, { threshold: [0, 0.6] });
+        io.observe(cover);
+      } else {
+        link.addEventListener("pointerenter", wake);
+        link.addEventListener("pointerleave", still);
+      }
     });
   })();
 
