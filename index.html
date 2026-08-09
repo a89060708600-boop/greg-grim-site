@@ -463,6 +463,48 @@
   }
   .book:hover .cover .glare{opacity:1}
 
+  /* ---------- фоновые видео-ленты ---------- */
+  .ambience{
+    position:relative;
+    height:52vh;
+    min-height:320px;
+    overflow:hidden;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .ambience video{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1.2s ease;
+  }
+  .ambience.playing video{opacity:1}
+  /* виньетки сверху и снизу, чтобы видео тонуло в ночи страницы */
+  .ambience::before,.ambience::after{
+    content:"";
+    position:absolute;left:0;right:0;height:30%;
+    z-index:2;pointer-events:none;
+  }
+  .ambience::before{top:0;background:linear-gradient(to bottom, var(--night), transparent)}
+  .ambience::after{bottom:0;background:linear-gradient(to top, var(--night), transparent)}
+  .ambience .amb-caption{
+    position:absolute;
+    left:50%;bottom:14%;
+    transform:translateX(-50%);
+    z-index:3;
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+    color:rgba(231,225,211,.75);
+    text-shadow:0 1px 8px rgba(0,0,0,.9);
+    white-space:nowrap;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ambience{display:none}
+  }
+
   /* ---------- появление при скролле ---------- */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
   .reveal.on{opacity:1;transform:none}
@@ -550,7 +592,7 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/14-gerc-73857393/" target="_blank" rel="noopener">
-            <div class="cover cover--img">
+            <div class="cover cover--img" data-live="assets/video/14-gerc-live.mp4">
               <img class="cover-img" src="assets/covers/14-gerc.webp" alt="Обложка романа «14 Герц»" loading="lazy">
               <i class="glare" aria-hidden="true"></i>
             </div>
@@ -785,6 +827,23 @@
         }, 3500 + Math.random() * 4500);
       })();
     }
+  })();
+
+  // фоновые видео-ленты: играют только когда видны на экране
+  (function(){
+    var bands = document.querySelectorAll(".ambience video");
+    if (!bands.length || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var v = en.target;
+        if (en.isIntersecting) {
+          v.play().then(function(){ v.closest(".ambience").classList.add("playing"); }).catch(function(){});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    bands.forEach(function(v){ io.observe(v); });
   })();
 
   // оживающие обложки: при наведении статика превращается в видео
