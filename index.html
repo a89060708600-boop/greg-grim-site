@@ -255,6 +255,12 @@
     box-shadow:inset 0 0 60px 10px rgba(10,13,18,.55);
     pointer-events:none;
   }
+  /* оживающая обложка: видео проявляется поверх статики при наведении */
+  .cover-img.live{
+    opacity:0;
+    transition:opacity .55s ease;
+  }
+  .cover-img.live.on{opacity:1}
   .cover-genre{
     font-family:var(--mono);
     font-size:.62rem;
@@ -779,6 +785,40 @@
         }, 3500 + Math.random() * 4500);
       })();
     }
+  })();
+
+  // оживающие обложки: при наведении статика превращается в видео
+  (function(){
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.querySelectorAll(".cover[data-live]").forEach(function(cover){
+      var link = cover.closest(".cover-link");
+      var img = cover.querySelector("img.cover-img");
+      var v = null, broken = false;
+      function ensure(){
+        if (v || broken) return v;
+        v = document.createElement("video");
+        v.className = "cover-img live";
+        v.muted = true; v.loop = true; v.playsInline = true;
+        v.preload = "auto";
+        v.src = cover.getAttribute("data-live");
+        v.setAttribute("aria-hidden", "true");
+        v.addEventListener("error", function(){
+          broken = true;
+          if (v) { v.remove(); v = null; }
+        }, { once:true });
+        img.insertAdjacentElement("afterend", v);
+        return v;
+      }
+      link.addEventListener("pointerenter", function(){
+        var vv = ensure();
+        if (!vv) return;
+        vv.play().catch(function(){});
+        vv.classList.add("on");
+      });
+      link.addEventListener("pointerleave", function(){
+        if (v) { v.classList.remove("on"); v.pause(); }
+      });
+    });
   })();
 
   // появление секций при скролле
