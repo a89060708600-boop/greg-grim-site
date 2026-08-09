@@ -234,11 +234,25 @@
       0 24px 45px -16px rgba(0,0,0,.95),
       0 0 45px -10px rgba(226,165,63,.28);
   }
-  /* рамка старого покетбука */
-  .cover::before{
+  /* рамка старого покетбука (только для типографских обложек) */
+  .cover:not(.cover--img)::before{
     content:"";
     position:absolute;inset:9px;
     border:1px solid rgba(226,165,63,.28);
+    pointer-events:none;
+  }
+  .cover--img{padding:0}
+  .cover-img{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  /* лёгкая виньетка поверх обложки, чтобы вписать её в темноту сайта */
+  .cover--img::after{
+    content:"";
+    position:absolute;inset:0;
+    box-shadow:inset 0 0 60px 10px rgba(10,13,18,.55);
     pointer-events:none;
   }
   .cover-genre{
@@ -443,30 +457,6 @@
   }
   .book:hover .cover .glare{opacity:1}
 
-  /* ---------- досье: цензура ---------- */
-  .redacted{
-    position:relative;
-    padding:0 .35em;
-    cursor:pointer;
-    color:var(--paper);
-  }
-  .redacted::after{
-    content:"";
-    position:absolute;inset:-1px -2px;
-    background:#2b303a;
-    border-left:2px solid #3a404c;
-    transition:opacity .4s;
-    pointer-events:none;
-  }
-  .redacted:hover::after,
-  .redacted:focus::after,
-  .redacted:focus-visible::after{opacity:0}
-  .dossier-note{
-    margin-top:.9rem;padding-top:.7rem;
-    border-top:1px dashed var(--line);
-    font-size:.66rem;color:var(--fog);letter-spacing:.1em;
-  }
-
   /* ---------- появление при скролле ---------- */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
   .reveal.on{opacity:1;transform:none}
@@ -528,11 +518,9 @@
 
         <article class="book book--featured reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/ukutannaya-v-noch-73834499/" target="_blank" rel="noopener">
-            <div class="cover">
+            <div class="cover cover--img">
+              <img class="cover-img" src="assets/covers/ukutannaya.webp" alt="Обложка романа «Укутанная в ночь»" loading="lazy">
               <span class="badge">аудио</span>
-              <span class="cover-genre">роман · нуар-хоррор</span>
-              <span class="cover-title">Укутанная в&nbsp;ночь</span>
-              <span class="cover-author">Грег Грим</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
@@ -543,11 +531,9 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/skazki-vzroslym-na-noch-71162299/" target="_blank" rel="noopener">
-            <div class="cover">
+            <div class="cover cover--img">
+              <img class="cover-img" src="assets/covers/skazki.webp" alt="Обложка сборника «Страшные сказки взрослым на ночь»" loading="lazy">
               <span class="badge">аудио</span>
-              <span class="cover-genre">сборник · хоррор</span>
-              <span class="cover-title">Страшные сказки взрослым на&nbsp;ночь</span>
-              <span class="cover-author">Грег Грим</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
@@ -558,10 +544,8 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/14-gerc-73857393/" target="_blank" rel="noopener">
-            <div class="cover">
-              <span class="cover-genre">роман · психологический хоррор</span>
-              <span class="cover-title">14 Герц</span>
-              <span class="cover-author">Грег Грим</span>
+            <div class="cover cover--img">
+              <img class="cover-img" src="assets/covers/14-gerc.webp" alt="Обложка романа «14 Герц»" loading="lazy">
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
@@ -572,11 +556,9 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/ohotnik-i-legion-73952694/" target="_blank" rel="noopener">
-            <div class="cover">
+            <div class="cover cover--img">
+              <img class="cover-img" src="assets/covers/ohotnik.webp" alt="Обложка романа «Охотник и Легион»" loading="lazy">
               <span class="badge">аудио</span>
-              <span class="cover-genre">роман · дарк-фэнтези</span>
-              <span class="cover-title">Охотник и&nbsp;Легион</span>
-              <span class="cover-author">Грег Грим</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
@@ -587,11 +569,9 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">
-            <div class="cover">
+            <div class="cover cover--img">
+              <video class="cover-img" src="assets/video/mrak-cover.mp4" poster="assets/covers/mrak-poster.webp" muted loop playsinline autoplay preload="metadata" aria-label="Живая обложка романа «Мрак, друг мой»"></video>
               <span class="badge">в работе</span>
-              <span class="cover-genre">роман · нуар</span>
-              <span class="cover-title">Мрак, друг&nbsp;мой</span>
-              <span class="cover-author">Грег Грим</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
@@ -602,11 +582,9 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/princessa-i-nischiy-64131146/" target="_blank" rel="noopener">
-            <div class="cover">
+            <div class="cover cover--img">
+              <img class="cover-img" src="assets/covers/princessa.webp" alt="Обложка романа «Принцесса и нищий»" loading="lazy">
               <span class="badge badge--free">бесплатно</span>
-              <span class="cover-genre">роман · тёмное фэнтези</span>
-              <span class="cover-title">Принцесса и&nbsp;нищий</span>
-              <span class="cover-author">Грег Грим</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
@@ -662,9 +640,8 @@
           Опубликовано: <b>6 книг</b><br>
           Аудиоверсий: <b>3</b><br>
           Средний рейтинг: <b>★ 5,0</b><br>
-          Особые приметы: <b class="redacted" tabindex="0">читателей не щадит</b><br>
-          Местонахождение: <b class="redacted" tabindex="0">в темноте, за письменным столом</b>
-          <div class="dossier-note">// две строки выше закрашены цензурой — коснитесь их, чтобы прочитать</div>
+          Особые приметы: <b>читателей не щадит</b><br>
+          Местонахождение: <b>в темноте, за письменным столом</b>
         </aside>
       </div>
     </div>
