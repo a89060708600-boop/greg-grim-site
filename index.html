@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Грег Грим — хоррор и нуар</title>
+<meta name="description" content="Грег Грим — писатель на стыке нуара, хоррора и дарк-фэнтези. Романы «Укутанная в ночь», «14 Герц», «Охотник и Легион» и другие.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Alegreya:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#0e1116;
+    --soot:#151a22;
+    --card:#1a2029;
+    --paper:#e7e1d3;
+    --fog:#98a1ac;
+    --lamp:#e2a53f;
+    --lamp-dim:#b57f2a;
+    --blood:#9d3438;
+    --line:rgba(231,225,211,.09);
+    --display:"Oswald",sans-serif;
+    --body:"Alegreya",georgia,serif;
+    --mono:"IBM Plex Mono",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--night);
+    color:var(--paper);
+    font-family:var(--body);
+    font-size:1.0625rem;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--blood);color:var(--paper)}
+
+  /* плёночное зерно поверх всего */
+  body::after{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:200;
+    opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  }
+
+  a{color:var(--lamp);text-decoration:none}
+  a:hover{color:var(--paper)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lamp);outline-offset:3px}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+
+  /* ---------- шапка ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:linear-gradient(to bottom, rgba(14,17,22,.92), rgba(14,17,22,.75));
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:60px;
+  }
+  .brand{
+    font-family:var(--mono);
+    font-size:.8rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--paper);
+  }
+  .brand b{color:var(--lamp);font-weight:500}
+  .nav-links{display:flex;gap:clamp(1rem,3vw,2.25rem);list-style:none}
+  .nav-links a{
+    font-family:var(--mono);
+    font-size:.75rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--fog);
+  }
+  .nav-links a:hover{color:var(--lamp)}
+
+  /* ---------- хиро: фонарь ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:7rem 1rem 4rem;
+    overflow:hidden;
+  }
+  /* конус фонарного света */
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-25%;left:50%;
+    width:130vmin;height:130vmin;
+    transform:translateX(-50%);
+    background:radial-gradient(closest-side, rgba(226,165,63,.16), rgba(226,165,63,.05) 45%, transparent 70%);
+    animation:flicker 9s infinite;
+    pointer-events:none;
+  }
+  /* туман у земли */
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:0;left:0;right:0;height:38%;
+    background:linear-gradient(to top, rgba(21,26,34,.9), transparent);
+    pointer-events:none;
+  }
+  @keyframes flicker{
+    0%,100%{opacity:1}
+    3%{opacity:.55}
+    4%{opacity:1}
+    31%{opacity:.92}
+    32%{opacity:.6}
+    33%{opacity:1}
+    64%{opacity:.95}
+    78%{opacity:.7}
+    79%{opacity:1}
+  }
+  .hero-eyebrow{
+    font-family:var(--mono);
+    font-size:.8rem;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    color:var(--fog);
+    margin-bottom:1.75rem;
+  }
+  .hero-eyebrow em{font-style:normal;color:var(--blood)}
+  h1{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(3.4rem,13vw,9rem);
+    line-height:.95;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    text-shadow:0 0 60px rgba(226,165,63,.25);
+  }
+  .hero-tagline{
+    max-width:34em;
+    margin-top:2rem;
+    font-size:clamp(1.1rem,2.2vw,1.35rem);
+    font-style:italic;
+    color:var(--fog);
+  }
+  .hero-typed{
+    margin-top:2.5rem;
+    font-family:var(--mono);
+    font-size:.85rem;
+    letter-spacing:.08em;
+    color:var(--lamp);
+    min-height:1.4em;
+  }
+  .hero-typed .cursor{
+    display:inline-block;width:.55em;height:1.1em;
+    background:var(--lamp);
+    vertical-align:text-bottom;
+    animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+  .hero-cta{
+    margin-top:3rem;
+    display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+  }
+  .btn{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:.8rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    padding:.9rem 1.9rem;
+    border:1px solid var(--lamp-dim);
+    color:var(--lamp);
+    transition:background .25s,color .25s,box-shadow .25s;
+  }
+  .btn:hover{
+    background:var(--lamp);
+    color:var(--night);
+    box-shadow:0 0 35px rgba(226,165,63,.35);
+  }
+  .btn--ghost{border-color:var(--line);color:var(--fog)}
+  .btn--ghost:hover{background:transparent;color:var(--paper);border-color:var(--fog);box-shadow:none}
+
+  /* ---------- секции ---------- */
+  section{padding:clamp(4.5rem,9vw,7.5rem) 0;position:relative}
+  .section-head{margin-bottom:clamp(2.5rem,5vw,4rem)}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.75rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--lamp);
+    display:block;
+    margin-bottom:.9rem;
+  }
+  h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.9rem,4.5vw,3rem);
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    line-height:1.1;
+  }
+
+  /* ---------- книги ---------- */
+  #books{background:var(--soot);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .shelf{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:clamp(1.5rem,3vw,2.5rem);
+  }
+  .book{display:flex;flex-direction:column}
+  .cover{
+    position:relative;
+    aspect-ratio:2/3;
+    background:
+      radial-gradient(ellipse at 50% 30%, #232a35, #12161d 75%);
+    border:1px solid var(--line);
+    box-shadow:inset 6px 0 12px -6px rgba(0,0,0,.8), 0 14px 30px -14px rgba(0,0,0,.9);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:1.4rem 1.1rem 1.1rem;
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .book a.cover-link{display:block;color:inherit}
+  .book:hover .cover{
+    transform:translateY(-8px) rotate(-.6deg);
+    box-shadow:inset 6px 0 12px -6px rgba(0,0,0,.8),
+      0 24px 45px -16px rgba(0,0,0,.95),
+      0 0 45px -10px rgba(226,165,63,.28);
+  }
+  /* рамка старого покетбука */
+  .cover::before{
+    content:"";
+    position:absolute;inset:9px;
+    border:1px solid rgba(226,165,63,.28);
+    pointer-events:none;
+  }
+  .cover-genre{
+    font-family:var(--mono);
+    font-size:.62rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--fog);
+    text-align:center;
+  }
+  .cover-title{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.3rem,1.6vw,1.6rem);
+    line-height:1.15;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    text-align:center;
+    color:var(--paper);
+  }
+  .book--featured .cover-title{color:var(--lamp)}
+  .cover-author{
+    font-family:var(--mono);
+    font-size:.62rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--fog);
+    text-align:center;
+  }
+  .badge{
+    position:absolute;
+    top:-1px;right:14px;
+    font-family:var(--mono);
+    font-size:.6rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:.35rem .5rem .4rem;
+    background:var(--blood);
+    color:var(--paper);
+  }
+  .badge--free{background:var(--lamp-dim);color:var(--night)}
+  .book-meta{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.06em;
+    color:var(--fog);
+    margin-top:1.1rem;
+  }
+  .book-meta .star{color:var(--lamp)}
+  .book-teaser{
+    font-size:.95rem;
+    color:var(--fog);
+    font-style:italic;
+    margin-top:.5rem;
+    flex-grow:1;
+  }
+  .book-link{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin-top:.9rem;
+  }
+
+  /* ---------- об авторе ---------- */
+  #about .grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:clamp(2rem,6vw,5rem);
+    align-items:start;
+  }
+  #about p+p{margin-top:1.2em}
+  #about .lead{font-size:1.25rem;font-style:italic;color:var(--paper)}
+  .dossier{
+    border:1px solid var(--line);
+    background:var(--soot);
+    padding:1.75rem 1.5rem;
+    font-family:var(--mono);
+    font-size:.78rem;
+    line-height:2.1;
+    color:var(--fog);
+  }
+  .dossier-title{
+    color:var(--blood);
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+    padding-bottom:.7rem;
+    margin-bottom:.7rem;
+  }
+  .dossier b{color:var(--paper);font-weight:500}
+
+  /* ---------- цитата ---------- */
+  .quote-band{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse at 50% 120%, rgba(157,52,56,.12), transparent 60%),
+      var(--night);
+    text-align:center;
+  }
+  blockquote{
+    max-width:30em;
+    margin:0 auto;
+    font-size:clamp(1.4rem,3.4vw,2.1rem);
+    font-style:italic;
+    line-height:1.45;
+  }
+  blockquote footer{
+    margin-top:1.5rem;
+    font-family:var(--mono);
+    font-style:normal;
+    font-size:.75rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--fog);
+  }
+
+  /* ---------- контакт / подвал ---------- */
+  #contact{text-align:center}
+  #contact p{max-width:32em;margin:0 auto;color:var(--fog)}
+  .contact-row{
+    margin-top:2.5rem;
+    display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+  }
+  .colophon{
+    border-top:1px solid var(--line);
+    padding:2rem 0 2.5rem;
+    text-align:center;
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.1em;
+    color:var(--fog);
+  }
+  .colophon span{color:var(--blood)}
+
+  /* ---------- неоновая вывеска: буквы имени ---------- */
+  .h1-letter{display:inline-block}
+  .h1-letter.flick{animation:letterFlick .5s steps(2,end)}
+  @keyframes letterFlick{
+    0%{opacity:1}20%{opacity:.2}30%{opacity:1}
+    50%{opacity:.45}60%{opacity:1}80%{opacity:.25}100%{opacity:1}
+  }
+
+  /* ---------- тёмная комната: фонарик ---------- */
+  #manuscript{background:#0a0d12;border-top:1px solid var(--line)}
+  .darkroom{
+    position:relative;
+    border:1px solid var(--line);
+    background:var(--soot);
+    padding:clamp(2rem,5vw,3.5rem);
+    overflow:hidden;
+    touch-action:none;
+  }
+  .darkroom:not(.lit){cursor:none}
+  .darkroom .ms-label{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--blood);
+    margin-bottom:1.5rem;
+  }
+  .darkroom .ms-text{
+    max-width:38em;
+    font-size:clamp(1.05rem,1.8vw,1.2rem);
+    line-height:1.85;
+  }
+  .darkroom .ms-text p+p{margin-top:1em}
+  .veil{
+    position:absolute;inset:0;
+    pointer-events:none;
+    background:radial-gradient(circle 140px at var(--x,-20%) var(--y,-20%),
+      rgba(10,13,18,0) 0,
+      rgba(10,13,18,.5) 45%,
+      rgba(10,13,18,.985) 72%);
+    transition:opacity .7s ease;
+  }
+  .darkroom.lit .veil{opacity:0}
+  .manuscript-hint{
+    display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;
+    margin-top:1.5rem;
+  }
+  .manuscript-hint .hint{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--fog);
+  }
+  .btn--small{padding:.6rem 1.2rem;font-size:.7rem}
+
+  /* ---------- глянец фонаря на обложках ---------- */
+  .cover-link{display:block;perspective:800px}
+  .cover .glare{
+    position:absolute;inset:0;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .3s;
+    background:radial-gradient(circle 150px at var(--gx,50%) var(--gy,40%),
+      rgba(226,165,63,.2), transparent 70%);
+  }
+  .book:hover .cover .glare{opacity:1}
+
+  /* ---------- досье: цензура ---------- */
+  .redacted{
+    background:#2b303a;
+    color:transparent;
+    padding:0 .35em;
+    cursor:pointer;
+    user-select:none;
+    transition:color .35s,background .35s;
+  }
+  .redacted:hover,.redacted:focus-visible{
+    background:rgba(157,52,56,.25);
+    color:var(--paper);
+    user-select:auto;
+  }
+  .dossier-note{
+    margin-top:.9rem;padding-top:.7rem;
+    border-top:1px dashed var(--line);
+    font-size:.66rem;color:var(--fog);letter-spacing:.1em;
+  }
+
+  /* ---------- появление при скролле ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.on{opacity:1;transform:none}
+
+  @media (max-width:760px){
+    #about .grid{grid-template-columns:1fr}
+    .nav-links{gap:1rem}
+    .nav-links a{font-size:.68rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .hero::before{animation:none}
+    .hero-typed .cursor{animation:none}
+    .reveal{opacity:1;transform:none;transition:none}
+    .cover,.book:hover .cover{transition:none;transform:none}
+    .h1-letter.flick{animation:none}
+    .veil{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">ГРЕГ <b>ГРИМ</b></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#books">Книги</a></li>
+        <li><a href="#manuscript">Рукопись</a></li>
+        <li><a href="#about">Об авторе</a></li>
+        <li><a href="#contact">Связь</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ХИРО -->
+  <section class="hero">
+    <p class="hero-eyebrow">нуар · <em>хоррор</em> · дарк-фэнтези</p>
+    <h1>Грег Грим</h1>
+    <p class="hero-tagline">Истории о цене выбора — и о том, что приходит взыскать её после наступления темноты.</p>
+    <p class="hero-typed"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
+    <div class="hero-cta">
+      <a class="btn" href="#books">Книги</a>
+      <a class="btn btn--ghost" href="https://www.litres.ru/author/greg-grim/" target="_blank" rel="noopener">Профиль на Литрес ↗</a>
+    </div>
+  </section>
+
+  <!-- КНИГИ -->
+  <section id="books">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Библиография</span>
+        <h2>Шесть дверей в темноту</h2>
+      </div>
+      <div class="shelf">
+
+        <article class="book book--featured reveal">
+          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/ukutannaya-v-noch-73834499/" target="_blank" rel="noopener">
+            <div class="cover">
+              <span class="badge">аудио</span>
+              <span class="cover-genre">роман · нуар-хоррор</span>
+              <span class="cover-title">Укутанная в&nbsp;ночь</span>
+              <span class="cover-author">Грег Грим</span>
+              <i class="glare" aria-hidden="true"></i>
+            </div>
+          </a>
+          <p class="book-meta">577 стр. · <span class="star">★ 5,0</span> · текст и аудио</p>
+          <p class="book-teaser">Ночь здесь — не время суток. Она действующее лицо.</p>
+          <a class="book-link" href="https://www.litres.ru/book/greg-grim/ukutannaya-v-noch-73834499/" target="_blank" rel="noopener">Читать на Литрес →</a>
+        </article>
+
+        <article class="book reveal">
+          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/skazki-vzroslym-na-noch-71162299/" target="_blank" rel="noopener">
+            <div class="cover">
+              <span class="badge">аудио</span>
+              <span class="cover-genre">сборник · хоррор</span>
+              <span class="cover-title">Страшные сказки взрослым на&nbsp;ночь</span>
+              <span class="cover-author">Грег Грим</span>
+              <i class="glare" aria-hidden="true"></i>
+            </div>
+          </a>
+          <p class="book-meta">522 стр. · <span class="star">★ 5,0</span> · текст и аудио</p>
+          <p class="book-teaser">Сказки, после которых свет оставляют включённым.</p>
+          <a class="book-link" href="https://www.litres.ru/book/greg-grim/skazki-vzroslym-na-noch-71162299/" target="_blank" rel="noopener">Читать на Литрес →</a>
+        </article>
+
+        <article class="book reveal">
+          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/14-gerc-73857393/" target="_blank" rel="noopener">
+            <div class="cover">
+              <span class="cover-genre">роман · психологический хоррор</span>
+              <span class="cover-title">14 Герц</span>
+              <span class="cover-author">Грег Грим</span>
+              <i class="glare" aria-hidden="true"></i>
+            </div>
+          </a>
+          <p class="book-meta">519 стр. · <span class="star">★ 5,0</span> · текст</p>
+          <p class="book-teaser">Частота, которую человеческое ухо не слышит. К сожалению.</p>
+          <a class="book-link" href="https://www.litres.ru/book/greg-grim/14-gerc-73857393/" target="_blank" rel="noopener">Читать на Литрес →</a>
+        </article>
+
+        <article class="book reveal">
+          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/ohotnik-i-legion-73952694/" target="_blank" rel="noopener">
+            <div class="cover">
+              <span class="badge">аудио</span>
+              <span class="cover-genre">роман · дарк-фэнтези</span>
+              <span class="cover-title">Охотник и&nbsp;Легион</span>
+              <span class="cover-author">Грег Грим</span>
+              <i class="glare" aria-hidden="true"></i>
+            </div>
+          </a>
+          <p class="book-meta">520 стр. · <span class="star">★ 5,0</span> · текст и аудио</p>
+          <p class="book-teaser">Один против множества. И множество об этом знает.</p>
+          <a class="book-link" href="https://www.litres.ru/book/greg-grim/ohotnik-i-legion-73952694/" target="_blank" rel="noopener">Читать на Литрес →</a>
+        </article>
+
+        <article class="book reveal">
+          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">
+            <div class="cover">
+              <span class="badge">в работе</span>
+              <span class="cover-genre">роман · нуар</span>
+              <span class="cover-title">Мрак, друг&nbsp;мой</span>
+              <span class="cover-author">Грег Грим</span>
+              <i class="glare" aria-hidden="true"></i>
+            </div>
+          </a>
+          <p class="book-meta">выходит по главам · <span class="star">★ 5,0</span></p>
+          <p class="book-teaser">Новый роман. Пишется прямо сейчас — темнота не ждёт.</p>
+          <a class="book-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">Следить на Литрес →</a>
+        </article>
+
+        <article class="book reveal">
+          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/princessa-i-nischiy-64131146/" target="_blank" rel="noopener">
+            <div class="cover">
+              <span class="badge badge--free">бесплатно</span>
+              <span class="cover-genre">роман · тёмное фэнтези</span>
+              <span class="cover-title">Принцесса и&nbsp;нищий</span>
+              <span class="cover-author">Грег Грим</span>
+              <i class="glare" aria-hidden="true"></i>
+            </div>
+          </a>
+          <p class="book-meta"><span class="star">★ 4,7</span> · бесплатная книга</p>
+          <p class="book-teaser">Знакомство с автором, которое ничего не стоит. Почти.</p>
+          <a class="book-link" href="https://www.litres.ru/book/greg-grim/princessa-i-nischiy-64131146/" target="_blank" rel="noopener">Читать бесплатно →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ИЗ РУКОПИСИ: тёмная комната -->
+  <section id="manuscript">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Из рукописи</span>
+        <h2>Найдите текст в темноте</h2>
+      </div>
+      <div class="darkroom reveal" id="darkroom">
+        <p class="ms-label">// рабочие материалы. не для печати.</p>
+        <div class="ms-text">
+          <p>Фонарь на углу мигнул дважды и погас — так в этом городе здороваются с плохими новостями. Я стоял под дождём и смотрел на окно третьего этажа, где свет горел всю ночь.</p>
+          <p>Хозяин квартиры умер во вторник. Выключить лампу было некому — и всё же кто-то только что прошёл за занавеской.</p>
+          <p>Цена вопроса была проста: подняться и узнать. Платить, как всегда, пришлось не деньгами.</p>
+        </div>
+        <div class="veil" aria-hidden="true"></div>
+      </div>
+      <div class="manuscript-hint reveal">
+        <span class="hint" id="hint">водите по тексту, как фонариком</span>
+        <button class="btn btn--small" id="lightSwitch" aria-pressed="false">Включить свет</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОБ АВТОРЕ -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Досье</span>
+        <h2>Об авторе</h2>
+      </div>
+      <div class="grid">
+        <div class="reveal">
+          <p class="lead">Грег Грим пишет на стыке нуара, хоррора и дарк-фэнтези — там, где детектив перестаёт искать преступника и начинает бояться собственной тени.</p>
+          <p>В его книгах страшное редко выпрыгивает из-за угла. Оно ждёт, пока герой сам сделает шаг — и предъявляет счёт. Главная тема всех историй — цена выбора и цена поступков: что человек готов отдать, когда торговаться уже поздно.</p>
+          <p>Читатели оценили: пять книг автора держат рейтинг 5,0 на Литрес, три из них озвучены как аудиокниги. Новый роман «Мрак, друг мой» выходит по главам прямо сейчас.</p>
+        </div>
+        <aside class="dossier reveal" aria-label="Краткое досье">
+          <div class="dossier-title">Дело № 001 · Грим Г.</div>
+          Род занятий: <b>писатель</b><br>
+          Жанры: <b>нуар, хоррор, дарк-фэнтези</b><br>
+          Опубликовано: <b>6 книг</b><br>
+          Аудиоверсий: <b>3</b><br>
+          Средний рейтинг: <b>★ 5,0</b><br>
+          Особые приметы: <b class="redacted" tabindex="0">читателей не щадит</b><br>
+          Местонахождение: <b class="redacted" tabindex="0">в темноте, за письменным столом</b>
+          <div class="dossier-note">// часть сведений засекречена. наведите курсор.</div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЦИТАТА -->
+  <section class="quote-band">
+    <div class="wrap reveal">
+      <blockquote>
+        «Меня интересует цена выбора. Монстры — лишь те, кто приходит её взыскать.»
+        <footer>— Грег Грим</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- КОНТАКТ -->
+  <section id="contact">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <span class="eyebrow">Связь</span>
+        <h2>Написать автору</h2>
+      </div>
+      <p>Отзывы, вопросы, предложения о сотрудничестве — или просто рассказать, на какой странице вы выключили свет.</p>
+      <div class="contact-row">
+        <a class="btn" href="mailto:a89060708600@gmail.com">Написать письмо</a>
+        <a class="btn btn--ghost" href="https://www.litres.ru/author/greg-grim/" target="_blank" rel="noopener">Литрес ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <div class="wrap">© 2026 Грег Грим. Все права защищены. <span>Темнота — тоже.</span></div>
+</footer>
+
+<script>
+  // печатная машинка в хиро
+  (function(){
+    var text = "не читайте это на ночь. хотя кого я обманываю…";
+    var el = document.getElementById("typed");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = text;
+      return;
+    }
+    var i = 0;
+    setTimeout(function tick(){
+      el.textContent = text.slice(0, ++i);
+      if (i < text.length) setTimeout(tick, 45 + Math.random() * 70);
+    }, 900);
+  })();
+
+  // тёмная комната: фонарик за курсором + выключатель
+  (function(){
+    var room = document.getElementById("darkroom");
+    var veil = room.querySelector(".veil");
+    var btn = document.getElementById("lightSwitch");
+    var hint = document.getElementById("hint");
+
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      hint.textContent = "водите по тексту пальцем, как фонариком";
+    }
+    room.addEventListener("pointermove", function(e){
+      var r = room.getBoundingClientRect();
+      veil.style.setProperty("--x", (e.clientX - r.left) + "px");
+      veil.style.setProperty("--y", (e.clientY - r.top) + "px");
+    });
+    room.addEventListener("pointerleave", function(){
+      veil.style.setProperty("--x", "-20%");
+      veil.style.setProperty("--y", "-20%");
+    });
+    btn.addEventListener("click", function(){
+      var lit = room.classList.toggle("lit");
+      btn.setAttribute("aria-pressed", lit ? "true" : "false");
+      btn.textContent = lit ? "Погасить свет" : "Включить свет";
+      hint.textContent = lit ? "так гораздо скучнее, правда?" :
+        (window.matchMedia("(pointer: coarse)").matches ?
+          "водите по тексту пальцем, как фонариком" : "водите по тексту, как фонариком");
+    });
+  })();
+
+  // обложки поворачиваются к свету
+  (function(){
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    document.querySelectorAll(".cover-link").forEach(function(link){
+      var cover = link.querySelector(".cover");
+      var glare = cover.querySelector(".glare");
+      link.addEventListener("pointermove", function(e){
+        var r = link.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        cover.style.transform = "translateY(-8px) rotateX(" + ((0.5 - py) * 8).toFixed(2) +
+          "deg) rotateY(" + ((px - 0.5) * 8).toFixed(2) + "deg)";
+        if (glare) {
+          glare.style.setProperty("--gx", (px * 100).toFixed(1) + "%");
+          glare.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
+        }
+      });
+      link.addEventListener("pointerleave", function(){
+        cover.style.transform = "";
+      });
+    });
+  })();
+
+  // имя как неоновая вывеска: буквы мерцают
+  (function(){
+    var h1 = document.querySelector("h1");
+    var text = h1.textContent;
+    h1.setAttribute("aria-label", text);
+    h1.innerHTML = "";
+    text.split("").forEach(function(ch){
+      if (ch === " ") { h1.appendChild(document.createTextNode(" ")); return; }
+      var s = document.createElement("span");
+      s.className = "h1-letter";
+      s.setAttribute("aria-hidden", "true");
+      s.textContent = ch;
+      h1.appendChild(s);
+    });
+    var letters = h1.querySelectorAll(".h1-letter");
+    function flick(el){
+      el.classList.remove("flick");
+      void el.offsetWidth;
+      el.classList.add("flick");
+    }
+    letters.forEach(function(l){
+      l.addEventListener("pointerenter", function(){ flick(l); });
+      l.addEventListener("animationend", function(){ l.classList.remove("flick"); });
+    });
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      (function ambient(){
+        setTimeout(function(){
+          flick(letters[Math.floor(Math.random() * letters.length)]);
+          ambient();
+        }, 3500 + Math.random() * 4500);
+      })();
+    }
+  })();
+
+  // появление секций при скролле
+  (function(){
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(function(e){ e.classList.add("on"); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add("on"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+
+</body>
+</html>
