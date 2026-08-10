@@ -436,6 +436,22 @@
     line-height:1.85;
   }
   .darkroom .ms-text p+p{margin-top:1em}
+  /* костлявая рука прячется у правого края тёмной комнаты */
+  .dark-hand{
+    position:absolute;
+    right:0;
+    top:32%;
+    width:clamp(180px,42%,330px);
+    height:auto;
+    transform:translateX(106%) rotate(2deg);
+    transition:transform 2.4s cubic-bezier(.22,.6,.28,1);
+    pointer-events:none;
+  }
+  .dark-hand.reach{transform:translateX(16%) rotate(-3deg)}
+  .darkroom.lit .dark-hand{
+    transform:translateX(106%) rotate(2deg);
+    transition-duration:.45s;
+  }
   .veil{
     position:absolute;inset:0;
     pointer-events:none;
@@ -563,6 +579,12 @@
     </div>
   </section>
 
+  <!-- ФОНОВАЯ ЛЕНТА: ночная улица -->
+  <div class="ambience" aria-hidden="true">
+    <video src="assets/video/street-ambience.mp4" muted loop playsinline preload="metadata"></video>
+    <span class="amb-caption">// город спит. кто-то — нет.</span>
+  </div>
+
   <!-- КНИГИ -->
   <section id="books">
     <div class="wrap">
@@ -653,12 +675,6 @@
     </div>
   </section>
 
-  <!-- ФОНОВАЯ ЛЕНТА: ночная улица -->
-  <div class="ambience" aria-hidden="true">
-    <video src="assets/video/street-ambience.mp4" muted loop playsinline preload="metadata"></video>
-    <span class="amb-caption">// город спит. кто-то — нет.</span>
-  </div>
-
   <!-- ИЗ РУКОПИСИ: тёмная комната -->
   <section id="manuscript">
     <div class="wrap">
@@ -673,6 +689,16 @@
           <p>Хозяин квартиры умер во вторник. Выключить лампу было некому — и всё же кто-то только что прошёл за занавеской.</p>
           <p>Цена вопроса была проста: подняться и узнать. Платить, как всегда, пришлось не деньгами.</p>
         </div>
+        <svg class="dark-hand" viewBox="0 0 320 220" aria-hidden="true">
+          <defs><filter id="handblur"><feGaussianBlur stdDeviation="2.2"/></filter></defs>
+          <g filter="url(#handblur)" fill="#04060a">
+            <ellipse cx="255" cy="120" rx="85" ry="58"/>
+            <path d="M250 75 C 180 58, 118 52, 58 60 C 47 62, 45 70, 56 72 C 118 68, 180 78, 248 92 Z"/>
+            <path d="M245 100 C 160 90, 88 93, 28 107 C 18 110, 20 118, 30 117 C 94 106, 164 108, 244 116 Z"/>
+            <path d="M245 125 C 170 127, 98 134, 43 152 C 34 156, 38 164, 47 161 C 104 145, 171 141, 244 140 Z"/>
+            <path d="M252 150 C 190 161, 138 173, 92 191 C 85 195, 89 203, 97 199 C 143 182, 194 172, 254 166 Z"/>
+          </g>
+        </svg>
         <div class="veil" aria-hidden="true"></div>
       </div>
       <div class="manuscript-hint reveal">
@@ -772,17 +798,25 @@
     if (window.matchMedia("(pointer: coarse)").matches) {
       hint.textContent = "водите по тексту пальцем, как фонариком";
     }
+    var hand = room.querySelector(".dark-hand");
     room.addEventListener("pointermove", function(e){
       var r = room.getBoundingClientRect();
-      veil.style.setProperty("--x", (e.clientX - r.left) + "px");
-      veil.style.setProperty("--y", (e.clientY - r.top) + "px");
+      var x = e.clientX - r.left, y = e.clientY - r.top;
+      veil.style.setProperty("--x", x + "px");
+      veil.style.setProperty("--y", y + "px");
+      // луч у правого края — рука тянется к свету
+      if (hand && !room.classList.contains("lit")) {
+        hand.classList.toggle("reach", x / r.width > 0.68);
+      }
     });
     room.addEventListener("pointerleave", function(){
       veil.style.setProperty("--x", "-20%");
       veil.style.setProperty("--y", "-20%");
+      if (hand) hand.classList.remove("reach");
     });
     btn.addEventListener("click", function(){
       var lit = room.classList.toggle("lit");
+      if (hand) hand.classList.remove("reach");
       btn.setAttribute("aria-pressed", lit ? "true" : "false");
       btn.textContent = lit ? "Погасить свет" : "Включить свет";
       hint.textContent = lit ? "так гораздо скучнее, правда?" :
