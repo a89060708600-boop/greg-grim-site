@@ -2,7 +2,9 @@
 
 Официальный сайт писателя Грега Грима: хоррор, нуар, дарк-фэнтези.
 
-**Онлайн:** https://greg-grim-site.vercel.app
+**Основной адрес:** https://greggrim.ru
+
+**Адрес Vercel:** https://greggrim.vercel.app
 
 **Книги автора на Литрес:** https://www.litres.ru/author/greg-grim/
 
@@ -10,3 +12,15 @@
 
 Один файл — `index.html`, без сборки и зависимостей (кроме Google Fonts).
 Пуш в ветку `main` автоматически выкладывается на Vercel.
+
+## Домен
+
+Домен `greggrim.ru` зарегистрирован в РЕГ.РУ и подключён к существующему
+проекту Vercel `bird11/greg-grim-site`. DNS настраивается в РЕГ.РУ по значениям,
+которые показывает Vercel в Settings → Domains. Версия с `www` перенаправляет
+на `https://greggrim.ru`.
+
+## Локальный просмотр
+
+Запустите `python -m http.server 8765 --bind 127.0.0.1` из папки сайта,
+затем откройте `http://127.0.0.1:8765`.

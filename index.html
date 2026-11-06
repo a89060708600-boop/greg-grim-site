@@ -3,36 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Грег Грим — хоррор и нуар</title>
-<meta name="description" content="Грег Грим — писатель на стыке нуара, хоррора и дарк-фэнтези. Романы «Укутанная в ночь», «14 Герц», «Охотник и Легион» и другие.">
+<title>Грег Грим — тёмная проза. Книги и закулисье</title>
+<meta name="description" content="Официальный сайт Грега Грима. Читайте бесплатно новую редакцию «Страшных сказок», откройте цикл «Несущие» и загляните в Закулисье Теней.">
+<meta name="theme-color" content="#0b0d10">
+<link rel="canonical" href="https://greggrim.ru/">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Грег Грим — хоррор и нуар">
-<meta property="og:description" content="Официальный сайт писателя. 6 книг, оживающие обложки, отрывок, спрятанный в темноте. Не читайте это на ночь.">
-<meta property="og:url" content="https://greggrim.vercel.app">
-<meta property="og:image" content="https://greggrim.vercel.app/assets/og-image.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Грег Грим">
+<meta property="og:title" content="Грег Грим — тьма выдуманная. И невыдуманная.">
+<meta property="og:description" content="Книги, оживающие обложки и текст, спрятанный в темноте. Начните со «Страшных сказок» — бесплатно.">
+<meta property="og:url" content="https://greggrim.ru/">
+<meta property="og:image" content="https://greggrim.ru/assets/og-image.jpg">
+<meta property="og:image:alt" content="Ночной фонарь в тумане — миры Грега Грима">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://greggrim.ru/#website","url":"https://greggrim.ru/","name":"Грег Грим — тёмная проза","inLanguage":"ru","author":{"@id":"https://greggrim.ru/#author"}},{"@type":"Person","@id":"https://greggrim.ru/#author","name":"Грег Грим","url":"https://greggrim.ru/","image":"https://greggrim.ru/assets/brand/monogram.webp","sameAs":["https://www.litres.ru/author/greg-grim/","https://author.today/u/greggrim_official","https://vk.com/greggrim_official","https://t.me/greggrim_official"]}]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Alegreya:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Alegreya:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --night:#0e1116;
-    --soot:#151a22;
-    --card:#1a2029;
-    --paper:#e7e1d3;
-    --fog:#98a1ac;
-    --lamp:#e2a53f;
-    --lamp-dim:#b57f2a;
-    --blood:#9d3438;
-    --line:rgba(231,225,211,.09);
-    --display:"Oswald",sans-serif;
+    --night:#0b0d10;
+    --soot:#11161c;
+    --card:#171d24;
+    --paper:#e6dfcf;
+    --fog:#a2a8ac;
+    --lamp:#c1a378;
+    --lamp-dim:#7f6d50;
+    --blood:#a67e72;
+    --cold:#9bb0c0;
+    --line:rgba(230,223,207,.13);
+    --display:"Cormorant Garamond",Georgia,serif;
     --body:"Alegreya",georgia,serif;
     --mono:"IBM Plex Mono",monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:92px}
   body{
     background:var(--night);
     color:var(--paper);
@@ -62,27 +73,29 @@
   /* ---------- шапка ---------- */
   header{
     position:fixed;top:0;left:0;right:0;z-index:100;
-    background:linear-gradient(to bottom, rgba(14,17,22,.92), rgba(14,17,22,.75));
+    background:rgba(11,13,16,.94);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
   .nav{
     display:flex;align-items:center;justify-content:space-between;
-    height:60px;
+    min-height:76px;
   }
   .brand{
-    font-family:var(--mono);
-    font-size:.8rem;
-    letter-spacing:.22em;
+    display:flex;align-items:center;gap:1rem;
+    font-family:var(--display);
+    font-size:1.08rem;
+    letter-spacing:.15em;
     text-transform:uppercase;
     color:var(--paper);
   }
-  .brand b{color:var(--lamp);font-weight:500}
+  .brand b{color:var(--paper);font-weight:500}
+  .brand-mark{width:40px;height:40px;border-radius:50%;display:block}
   .nav-links{display:flex;gap:clamp(1rem,3vw,2.25rem);list-style:none}
   .nav-links a{
     font-family:var(--mono);
     font-size:.75rem;
-    letter-spacing:.14em;
+    letter-spacing:.09em;
     text-transform:uppercase;
     color:var(--fog);
   }
@@ -91,13 +104,13 @@
   /* ---------- хиро: фонарь ---------- */
   .hero{
     position:relative;
-    min-height:100svh;
+    min-height:88svh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:7rem 1rem 4rem;
+    padding:9rem 1.25rem 5.5rem;
     overflow:hidden;
   }
   /* конус фонарного света */
@@ -107,7 +120,7 @@
     top:-25%;left:50%;
     width:130vmin;height:130vmin;
     transform:translateX(-50%);
-    background:radial-gradient(closest-side, rgba(226,165,63,.16), rgba(226,165,63,.05) 45%, transparent 70%);
+    background:radial-gradient(closest-side, rgba(193,163,120,.12), rgba(193,163,120,.03) 45%, transparent 70%);
     animation:flicker 9s infinite;
     pointer-events:none;
   }
@@ -116,7 +129,7 @@
     content:"";
     position:absolute;
     bottom:0;left:0;right:0;height:38%;
-    background:linear-gradient(to top, rgba(21,26,34,.9), transparent);
+    background:linear-gradient(to top, rgba(17,22,28,.65), transparent);
     pointer-events:none;
   }
   @keyframes flicker{
@@ -136,31 +149,31 @@
     letter-spacing:.35em;
     text-transform:uppercase;
     color:var(--fog);
-    margin-bottom:1.75rem;
+    margin-bottom:2rem;
   }
   .hero-eyebrow em{font-style:normal;color:var(--blood)}
   h1{
     font-family:var(--display);
     font-weight:600;
-    font-size:clamp(3.4rem,13vw,9rem);
-    line-height:.95;
-    letter-spacing:.06em;
+    font-size:clamp(3.6rem,11.5vw,8.75rem);
+    line-height:1;
+    letter-spacing:.11em;
     text-transform:uppercase;
-    text-shadow:0 0 60px rgba(226,165,63,.25);
+    text-shadow:0 0 55px rgba(193,163,120,.13);
   }
   .hero-tagline{
-    max-width:34em;
-    margin-top:2rem;
-    font-size:clamp(1.1rem,2.2vw,1.35rem);
+    max-width:28em;
+    margin-top:1.5rem;
+    font-size:clamp(1.3rem,2.7vw,1.85rem);
     font-style:italic;
-    color:var(--fog);
+    color:var(--lamp);
   }
   .hero-typed{
-    margin-top:2.5rem;
+    margin-top:1.5rem;
     font-family:var(--mono);
     font-size:.85rem;
     letter-spacing:.08em;
-    color:var(--lamp);
+    color:var(--fog);
     min-height:1.4em;
   }
   .hero-typed .cursor{
@@ -178,9 +191,9 @@
     display:inline-block;
     font-family:var(--mono);
     font-size:.8rem;
-    letter-spacing:.16em;
+    letter-spacing:.08em;
     text-transform:uppercase;
-    padding:.9rem 1.9rem;
+    padding:.9rem 1.5rem;
     border:1px solid var(--lamp-dim);
     color:var(--lamp);
     transition:background .25s,color .25s,box-shadow .25s;
@@ -188,7 +201,7 @@
   .btn:hover{
     background:var(--lamp);
     color:var(--night);
-    box-shadow:0 0 35px rgba(226,165,63,.35);
+    box-shadow:0 0 30px rgba(193,163,120,.15);
   }
   .btn--ghost{border-color:var(--line);color:var(--fog)}
   .btn--ghost:hover{background:transparent;color:var(--paper);border-color:var(--fog);box-shadow:none}
@@ -208,9 +221,8 @@
   h2{
     font-family:var(--display);
     font-weight:500;
-    font-size:clamp(1.9rem,4.5vw,3rem);
-    letter-spacing:.04em;
-    text-transform:uppercase;
+    font-size:clamp(2.4rem,5vw,3.8rem);
+    letter-spacing:.015em;
     line-height:1.1;
   }
 
@@ -218,7 +230,7 @@
   #books{background:var(--soot);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .shelf{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    grid-template-columns:repeat(3,minmax(0,1fr));
     gap:clamp(1.5rem,3vw,2.5rem);
   }
   .book{display:flex;flex-direction:column}
@@ -419,7 +431,7 @@
     background:var(--soot);
     padding:clamp(2rem,5vw,3.5rem);
     overflow:hidden;
-    touch-action:none;
+    touch-action:pan-y;
   }
   .darkroom:not(.lit){cursor:none}
   .darkroom .ms-label{
@@ -530,19 +542,89 @@
   }
 
   /* ---------- появление при скролле ---------- */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-  .reveal.on{opacity:1;transform:none}
+  .reveal{opacity:1;transform:none}
+  .reveal.reveal-ready{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.reveal-ready.on{opacity:1;transform:none}
+
+  /* ---------- первое чтение: новая редакция сказок ---------- */
+  .skip-link{position:fixed;top:-80px;left:1rem;z-index:300;background:var(--paper);color:var(--night);padding:.7rem 1rem}
+  .skip-link:focus{top:1rem;color:var(--night)}
+  .hero-frame{position:relative;z-index:1;width:min(100%,1040px);padding:3.5rem 1rem}
+  .hero-frame::before,.hero-frame::after{content:"";position:absolute;top:0;bottom:0;width:12%;border-top:1px solid var(--lamp-dim);border-bottom:1px solid var(--lamp-dim);opacity:.45;pointer-events:none}
+  .hero-frame::before{left:0;border-left:1px solid var(--lamp-dim)}
+  .hero-frame::after{right:0;border-right:1px solid var(--lamp-dim)}
+  .hero-tagline span{color:var(--cold)}
+  .hero-note{font-size:1rem;color:var(--fog);margin-top:1rem}
+  #start{background:var(--night);border-top:1px solid var(--line)}
+  .start-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2.5rem,7vw,6rem);align-items:center}
+  .start-cover{display:block;max-width:350px;justify-self:center;position:relative;width:100%;box-shadow:0 22px 65px rgba(0,0,0,.5)}
+  .start-cover::after{content:"";position:absolute;inset:0;border:1px solid rgba(230,223,207,.2);pointer-events:none}
+  .start-cover img{display:block;width:100%;height:auto}
+  .start-copy .eyebrow{color:var(--cold)}
+  .start-copy h2{font-size:clamp(2.8rem,5.5vw,4.5rem);line-height:.98;margin-bottom:1.5rem}
+  .start-copy p{font-size:1.15rem;line-height:1.75;color:var(--fog);max-width:29em}
+  .start-copy p+p{margin-top:1rem}
+  .start-copy .start-lead{font-size:1.35rem;color:var(--paper);line-height:1.55}
+  .start-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+  .btn--solid{background:var(--lamp);color:var(--night);border-color:var(--lamp)}
+  .btn--solid:hover{background:var(--paper);border-color:var(--paper);box-shadow:none}
+  .start-copy .edition-note{margin-top:1rem;font-size:.92rem;color:var(--fog)}
+  .book-title{font-family:var(--display);font-size:1.6rem;font-weight:500;line-height:1.15;margin-top:1rem;color:var(--paper)}
+  .book .book-meta{margin-top:.55rem;line-height:1.7}
+  .book-teaser{font-size:1.05rem}
+  .badge--complete{background:var(--cold);color:var(--night)}
+  .shelf-note{font-size:1.12rem;color:var(--fog);margin-top:1rem;max-width:38em}
+  .next-manuscript{display:grid;grid-template-columns:.7fr 1.3fr;gap:2rem;border-top:1px solid var(--line);margin-top:4rem;padding-top:2.5rem;align-items:start}
+  .next-manuscript h3{font-family:var(--display);font-size:2.2rem;font-weight:500;line-height:1.1}
+  .next-manuscript p{color:var(--fog);max-width:36em}
+  .next-manuscript .eyebrow{font-size:.65rem;margin-bottom:.7rem}
+  .next-manuscript .book-link{display:inline-block;margin-top:1rem}
+  .dossier-title{color:var(--lamp)}
+  .dossier a{display:inline-block}
+  .reading-hubs{display:flex;gap:1rem 1.75rem;flex-wrap:wrap;justify-content:center;margin-top:2rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.04em}
+  .contact-monogram{width:76px;height:76px;border-radius:50%;display:block;margin:0 auto 1.8rem}
 
   @media (max-width:760px){
     #about .grid{grid-template-columns:1fr}
+    .shelf{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .start-layout{grid-template-columns:1fr;gap:3rem}
+    .start-cover{max-width:270px}
+    .start-copy{max-width:35em;margin:0 auto}
+    .next-manuscript{grid-template-columns:1fr;gap:1rem}
     .nav-links{gap:1rem}
     .nav-links a{font-size:.68rem}
+  }
+  @media (max-width:560px){
+    .nav{min-height:68px;gap:1rem}
+    .brand{gap:.6rem;font-size:.98rem;letter-spacing:.1em;white-space:nowrap}
+    .brand-mark{width:34px;height:34px}
+    .nav-secondary{display:none}
+    .nav-links{gap:.9rem}
+    .hero{min-height:84svh;padding:7.5rem 1.25rem 3.5rem}
+    .hero-frame{padding:2.8rem .5rem}
+    .hero-frame::before,.hero-frame::after{width:9%}
+    .hero-eyebrow{font-size:.63rem;letter-spacing:.2em}
+    h1{font-size:clamp(3.25rem,12.5vw,4.5rem);letter-spacing:.055em}
+    .hero-tagline{font-size:1.35rem;max-width:17em;margin-left:auto;margin-right:auto}
+    .hero-typed{font-size:.69rem;letter-spacing:.02em;min-height:2.8em;max-width:26em;margin-left:auto;margin-right:auto}
+    .hero-cta{margin-top:1.5rem;gap:.7rem}
+    .hero-cta .btn{font-size:.65rem;padding:.8rem 1rem}
+    .ambience{height:38vh;min-height:230px}
+    .ambience .amb-caption{font-size:.6rem;letter-spacing:.13em;white-space:normal;width:90%;text-align:center}
+    .start-actions{flex-direction:column;align-items:stretch;text-align:center}
+    .start-copy .start-lead{font-size:1.2rem}
+    .start-copy p{font-size:1.08rem}
+    .contact-row{flex-direction:column;align-items:stretch}
+    .contact-row .btn{text-align:center}
+  }
+  @media (max-width:440px){
+    .shelf{grid-template-columns:1fr;max-width:300px;margin-inline:auto;gap:3rem}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     .hero::before{animation:none}
     .hero-typed .cursor{animation:none}
-    .reveal{opacity:1;transform:none;transition:none}
+    .reveal,.reveal.reveal-ready{opacity:1;transform:none;transition:none}
     .cover,.book:hover .cover{transition:none;transform:none}
     .h1-letter.flick{animation:none}
     .veil{transition:none}
@@ -551,14 +633,16 @@
 </head>
 <body>
 
+<a class="skip-link" href="#start">Перейти к книгам</a>
+
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">ГРЕГ <b>ГРИМ</b></a>
-    <nav>
+    <a class="brand" href="#top" aria-label="Грег Грим — на главную"><img class="brand-mark" src="assets/brand/monogram.webp" width="40" height="40" alt="">ГРЕГ ГРИМ</a>
+    <nav aria-label="Основная навигация">
       <ul class="nav-links">
         <li><a href="#books">Книги</a></li>
-        <li><a href="#manuscript">Рукопись</a></li>
-        <li><a href="#about">Об авторе</a></li>
+        <li class="nav-secondary"><a href="#manuscript">В темноте</a></li>
+        <li class="nav-secondary"><a href="#about">Об авторе</a></li>
         <li><a href="#contact">Связь</a></li>
       </ul>
     </nav>
@@ -569,13 +653,37 @@
 
   <!-- ХИРО -->
   <section class="hero">
-    <p class="hero-eyebrow">нуар · <em>хоррор</em> · дарк-фэнтези</p>
-    <h1>Грег Грим</h1>
-    <p class="hero-tagline">Истории о цене выбора — и о том, что приходит взыскать её после наступления темноты.</p>
-    <p class="hero-typed"><span id="typed"></span><span class="cursor" aria-hidden="true"></span></p>
-    <div class="hero-cta">
-      <a class="btn" href="#books">Книги</a>
-      <a class="btn btn--ghost" href="https://www.litres.ru/author/greg-grim/" target="_blank" rel="noopener">Профиль на Литрес ↗</a>
+    <div class="hero-frame">
+      <p class="hero-eyebrow">Писатель · Тёмная проза</p>
+      <h1>Грег Грим</h1>
+      <p class="hero-tagline">Тьма выдуманная. <span>И невыдуманная.</span></p>
+      <p class="hero-typed"><span id="typed">Если в доме слишком тихо, это ещё не значит, что он пуст.</span><span class="cursor" aria-hidden="true"></span></p>
+      <div class="hero-cta">
+        <a class="btn btn--solid" href="#start">Читать бесплатно</a>
+        <a class="btn btn--ghost" href="#books">Выбрать книгу ↓</a>
+      </div>
+      <p class="hero-note">Первое знакомство — «Страшные сказки».</p>
+    </div>
+  </section>
+
+  <!-- ПЕРВОЕ ЗНАКОМСТВО: НОВАЯ РЕДАКЦИЯ -->
+  <section id="start" aria-labelledby="start-title">
+    <div class="wrap start-layout">
+      <a class="start-cover reveal" href="https://author.today/work/658827" target="_blank" rel="noopener" aria-label="Читать «Страшные сказки» на Author.Today">
+        <img src="assets/covers/skazki-revised.webp" width="720" height="1080" alt="Страшные сказки. Книга первая — обложка с приютом и раскрытой тетрадью" loading="lazy">
+      </a>
+      <div class="start-copy reveal">
+        <span class="eyebrow">Новая редакция · Бесплатно</span>
+        <h2 id="start-title">Страшные сказки</h2>
+        <p class="start-lead">В приюте «Мамино Тепло» пятьдесят детей. Так написано в бумагах. Семён пересчитывает их за обедом и получает сорок девять.</p>
+        <p>Взрослые говорят, что у исчезнувших детей теперь есть семьи. В тетради Семёна рядом со сказками появляются имена.</p>
+        <p>За дверью подвала кто-то плачет. Алёна слышит. Засов прибит снаружи, на высоте взрослого плеча.</p>
+        <div class="start-actions">
+          <a class="btn btn--solid" href="https://author.today/work/658827" target="_blank" rel="noopener">Читать на АТ ↗</a>
+          <a class="btn btn--ghost" href="https://litnet.com/ru/book/strashnye-skazki-b630630" target="_blank" rel="noopener">Читать на Литнете ↗</a>
+        </div>
+        <p class="edition-note">Книга первая. Приютская история и страшные сказки в одной тетради.</p>
+      </div>
     </div>
   </section>
 
@@ -589,8 +697,9 @@
   <section id="books">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Библиография</span>
-        <h2>Шесть дверей в темноту</h2>
+        <span class="eyebrow">Книжная полка</span>
+        <h2>У каждой двери — своя цена</h2>
+        <p class="shelf-note">Цикл «Несущие» начинается с «Укутанной в ночь». «Мрак, друг мой» — вторая книга, доступная целиком.</p>
       </div>
       <div class="shelf">
 
@@ -602,22 +711,24 @@
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
-          <p class="book-meta">577 стр. · <span class="star">★ 5,0</span> · текст и аудио</p>
+          <h3 class="book-title">Укутанная в ночь</h3>
+          <p class="book-meta">Несущие · Книга 1 · Текст и аудио</p>
           <p class="book-teaser">Ночь здесь — не время суток. Она действующее лицо.</p>
           <a class="book-link" href="https://www.litres.ru/book/greg-grim/ukutannaya-v-noch-73834499/" target="_blank" rel="noopener">Читать на Литрес →</a>
         </article>
 
         <article class="book reveal">
-          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/skazki-vzroslym-na-noch-71162299/" target="_blank" rel="noopener">
-            <div class="cover cover--img" data-live="assets/video/skazki-live.mp4">
-              <img class="cover-img" src="assets/covers/skazki.webp" alt="Обложка сборника «Страшные сказки взрослым на ночь»" loading="lazy">
-              <span class="badge">аудио</span>
+          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">
+            <div class="cover cover--img" data-live="assets/video/mrak-cover.mp4">
+              <img class="cover-img" src="assets/covers/mrak-poster.webp" alt="Обложка романа «Мрак, друг мой»" loading="lazy">
+              <span class="badge badge--complete">Целиком</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
-          <p class="book-meta">522 стр. · <span class="star">★ 5,0</span> · текст и аудио</p>
-          <p class="book-teaser">Сказки, после которых свет оставляют включённым.</p>
-          <a class="book-link" href="https://www.litres.ru/book/greg-grim/skazki-vzroslym-na-noch-71162299/" target="_blank" rel="noopener">Читать на Литрес →</a>
+          <h3 class="book-title">Мрак, друг мой</h3>
+          <p class="book-meta">Несущие · Книга 2 · Полный текст</p>
+          <p class="book-teaser">Петербург не строился. Он выращивался.</p>
+          <a class="book-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">Читать на Литрес →</a>
         </article>
 
         <article class="book reveal">
@@ -627,7 +738,8 @@
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
-          <p class="book-meta">519 стр. · <span class="star">★ 5,0</span> · текст</p>
+          <h3 class="book-title">14 Герц</h3>
+          <p class="book-meta">Роман · Текст</p>
           <p class="book-teaser">Частота, которую человеческое ухо не слышит. К сожалению.</p>
           <a class="book-link" href="https://www.litres.ru/book/greg-grim/14-gerc-73857393/" target="_blank" rel="noopener">Читать на Литрес →</a>
         </article>
@@ -640,22 +752,24 @@
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
-          <p class="book-meta">520 стр. · <span class="star">★ 5,0</span> · текст и аудио</p>
+          <h3 class="book-title">Охотник и Легион</h3>
+          <p class="book-meta">Роман · Текст и аудио</p>
           <p class="book-teaser">Один против множества. И множество об этом знает.</p>
           <a class="book-link" href="https://www.litres.ru/book/greg-grim/ohotnik-i-legion-73952694/" target="_blank" rel="noopener">Читать на Литрес →</a>
         </article>
 
         <article class="book reveal">
-          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">
-            <div class="cover cover--img" data-live="assets/video/mrak-cover.mp4">
-              <img class="cover-img" src="assets/covers/mrak-poster.webp" alt="Обложка романа «Мрак, друг мой»" loading="lazy">
-              <span class="badge">в работе</span>
+          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/skazki-vzroslym-na-noch-71162299/" target="_blank" rel="noopener">
+            <div class="cover cover--img" data-live="assets/video/skazki-live.mp4">
+              <img class="cover-img" src="assets/covers/skazki.webp" alt="Обложка сборника «Сказки взрослым на ночь»" loading="lazy">
+              <span class="badge">аудио</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
-          <p class="book-meta">выходит по главам · <span class="star">★ 5,0</span></p>
-          <p class="book-teaser">Новый роман. Пишется прямо сейчас — темнота не ждёт.</p>
-          <a class="book-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">Следить на Литрес →</a>
+          <h3 class="book-title">Сказки взрослым на ночь</h3>
+          <p class="book-meta">Сборник · Текст и аудио</p>
+          <p class="book-teaser">Сказки, после которых свет оставляют включённым.</p>
+          <a class="book-link" href="https://www.litres.ru/book/greg-grim/skazki-vzroslym-na-noch-71162299/" target="_blank" rel="noopener">Открыть на Литрес →</a>
         </article>
 
         <article class="book reveal">
@@ -666,12 +780,17 @@
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
-          <p class="book-meta"><span class="star">★ 4,7</span> · бесплатная книга</p>
+          <h3 class="book-title">Принцесса и нищий</h3>
+          <p class="book-meta">Бесплатная книга</p>
           <p class="book-teaser">Знакомство с автором, которое ничего не стоит. Почти.</p>
           <a class="book-link" href="https://www.litres.ru/book/greg-grim/princessa-i-nischiy-64131146/" target="_blank" rel="noopener">Читать бесплатно →</a>
         </article>
 
       </div>
+      <aside class="next-manuscript reveal" aria-label="Следующая рукопись">
+        <div><span class="eyebrow">Новая рукопись</span><h3>Реестр душ</h3></div>
+        <div><p>Штамп ударил по бумаге. В углу зала стало на одну тень больше. Рукопись завершена; новости о публикации — в «Закулисье Теней».</p><a class="book-link" href="https://t.me/greggrim_official" target="_blank" rel="noopener">Заглянуть в закулисье →</a></div>
+      </aside>
     </div>
   </section>
 
@@ -685,15 +804,15 @@
   <section id="manuscript">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Из рукописи</span>
+        <span class="eyebrow">Из книги</span>
         <h2>Найдите текст в темноте</h2>
       </div>
       <div class="darkroom reveal" id="darkroom">
-        <p class="ms-label">// рабочие материалы. не для печати.</p>
+        <p class="ms-label">«Страшные сказки» · Глава первая. Крыльцо</p>
         <div class="ms-text">
-          <p>Фонарь на углу мигнул дважды и погас — так в этом городе здороваются с плохими новостями. Я стоял под дождём и смотрел на окно третьего этажа, где свет горел всю ночь.</p>
-          <p>Хозяин квартиры умер во вторник. Выключить лампу было некому — и всё же кто-то только что прошёл за занавеской.</p>
-          <p>Цена вопроса была проста: подняться и узнать. Платить, как всегда, пришлось не деньгами.</p>
+          <p>Ведро ей выдали не то, из которого пьют, а то, в которое сливают.</p>
+          <p>Она вымыла крыльцо, потом верхнюю ступеньку, потом нижнюю, потом верхнюю снова, потому что с нижней натекло, а после отжала тряпку, запрокинула голову и стала считать окна.</p>
+          <p>Сбилась на девятом.</p>
         </div>
         <svg class="dark-hand" viewBox="0 0 320 220" aria-hidden="true">
           <defs><filter id="handblur"><feGaussianBlur stdDeviation="2.2"/></filter></defs>
@@ -711,6 +830,7 @@
       <div class="manuscript-hint reveal">
         <span class="hint" id="hint">водите по тексту, как фонариком</span>
         <button class="btn btn--small" id="lightSwitch" aria-pressed="false">Включить свет</button>
+        <a class="book-link" href="https://author.today/work/658827" target="_blank" rel="noopener">Продолжить читать →</a>
       </div>
     </div>
   </section>
@@ -724,19 +844,17 @@
       </div>
       <div class="grid">
         <div class="reveal">
-          <p class="lead">Грег Грим пишет на стыке нуара, хоррора и дарк-фэнтези — там, где детектив перестаёт искать преступника и начинает бояться собственной тени.</p>
-          <p>В его книгах страшное редко выпрыгивает из-за угла. Оно ждёт, пока герой сам сделает шаг — и предъявляет счёт. Главная тема всех историй — цена выбора и цена поступков: что человек готов отдать, когда торговаться уже поздно.</p>
-          <p>Читатели оценили: пять книг автора держат рейтинг 5,0 на Литрес, три из них озвучены как аудиокниги. Новый роман «Мрак, друг мой» выходит по главам прямо сейчас.</p>
+          <p class="lead">Я пишу тёмную прозу о людях, которые оказываются внутри чужих правил и ищут способ остаться собой.</p>
+          <p>Дом, тетрадь, засов, штамп. Обычные вещи, пока кто-нибудь не замечает, что они служат чему-то ещё. Мне интересно, какой выбор остаётся у человека, когда привычный порядок начинает работать против него.</p>
+          <p>Здесь собраны мои книги. А черновики, разговоры о прочитанном и новости остаются в «Закулисье Теней».</p>
         </div>
-        <aside class="dossier reveal" aria-label="Краткое досье">
-          <div class="dossier-title">Дело № 001 · Грим Г.</div>
-          Род занятий: <b>писатель</b><br>
-          Жанры: <b>нуар, хоррор, дарк-фэнтези</b><br>
-          Опубликовано: <b>6 книг</b><br>
-          Аудиоверсий: <b>3</b><br>
-          Средний рейтинг: <b>★ 5,0</b><br>
-          Особые приметы: <b>читателей не щадит</b><br>
-          Местонахождение: <b>в темноте, за письменным столом</b>
+        <aside class="dossier reveal" aria-label="Маршрут читателя">
+          <div class="dossier-title">Если вы здесь впервые</div>
+          Начать: <a href="#start">«Страшные сказки»</a><br>
+          Продолжить: <a href="#books">цикл «Несущие»</a><br>
+          Остаться: <a href="#contact">«Закулисье Теней»</a><br>
+          Читать: <b>в своём темпе</b><br>
+          Свет: <b>на ваше усмотрение</b>
         </aside>
       </div>
     </div>
@@ -755,20 +873,26 @@
   <!-- ФОНОВАЯ ЛЕНТА: кабинет писателя -->
   <div class="ambience" aria-hidden="true">
     <video src="assets/video/den-ambience.mp4" muted loop playsinline preload="metadata"></video>
-    <span class="amb-caption">// здесь пишется «мрак, друг мой»</span>
+    <span class="amb-caption">// последнее слово ещё не написано.</span>
   </div>
 
   <!-- КОНТАКТ -->
   <section id="contact">
     <div class="wrap reveal">
+      <img class="contact-monogram" src="assets/brand/monogram.webp" width="76" height="76" alt="Монограмма ГГ" loading="lazy">
       <div class="section-head">
-        <span class="eyebrow">Связь</span>
-        <h2>Написать автору</h2>
+        <span class="eyebrow">Ближе к автору</span>
+        <h2>Закулисье Теней</h2>
       </div>
-      <p>Отзывы, вопросы, предложения о сотрудничестве — или просто рассказать, на какой странице вы выключили свет.</p>
+      <p>Черновики, новые книги и то, что осталось за пределами страниц. Здесь можно задать вопрос, оставить отзыв или рассказать, на каком месте пришлось включить свет.</p>
       <div class="contact-row">
-        <a class="btn" href="mailto:a89060708600@gmail.com">Написать письмо</a>
-        <a class="btn btn--ghost" href="https://www.litres.ru/author/greg-grim/" target="_blank" rel="noopener">Литрес ↗</a>
+        <a class="btn btn--solid" href="https://t.me/greggrim_official" target="_blank" rel="noopener">Telegram ↗</a>
+        <a class="btn btn--ghost" href="https://vk.com/greggrim_official" target="_blank" rel="noopener">Сообщество ВК ↗</a>
+      </div>
+      <div class="reading-hubs" aria-label="Авторские страницы">
+        <a href="https://www.litres.ru/author/greg-grim/" target="_blank" rel="noopener">Литрес ↗</a>
+        <a href="https://author.today/u/greggrim_official" target="_blank" rel="noopener">Author.Today ↗</a>
+        <a href="https://litnet.com/ru/greg-grim-u13471105/about" target="_blank" rel="noopener">Литнет ↗</a>
       </div>
     </div>
   </section>
@@ -776,19 +900,20 @@
 </main>
 
 <footer class="colophon">
-  <div class="wrap">© 2026 Грег Грим. Все права защищены. <span>Темнота — тоже.</span></div>
+  <div class="wrap">© 2026 Грег Грим · <a href="https://greggrim.ru/">greggrim.ru</a><br><span>Тьма выдуманная. И невыдуманная.</span></div>
 </footer>
 
 <script>
   // печатная машинка в хиро
   (function(){
-    var text = "не читайте это на ночь. хотя кого я обманываю…";
+    var text = "Если в доме слишком тихо, это ещё не значит, что он пуст.";
     var el = document.getElementById("typed");
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       el.textContent = text;
       return;
     }
     var i = 0;
+    el.textContent = "";
     setTimeout(function tick(){
       el.textContent = text.slice(0, ++i);
       if (i < text.length) setTimeout(tick, 45 + Math.random() * 70);
@@ -893,7 +1018,7 @@
   // фоновые видео-ленты: играют только когда видны на экране
   (function(){
     var bands = document.querySelectorAll(".ambience video");
-    if (!bands.length || !("IntersectionObserver" in window)) return;
+    if (!bands.length || !("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
         var v = en.target;
@@ -914,7 +1039,7 @@
     document.querySelectorAll(".cover[data-live]").forEach(function(cover){
       var link = cover.closest(".cover-link");
       var img = cover.querySelector("img.cover-img");
-      var v = null, broken = false;
+      var v = null, broken = false, requested = false;
       function ensure(){
         if (v || broken) return v;
         v = document.createElement("video");
@@ -931,12 +1056,15 @@
         return v;
       }
       function wake(){
+        requested = true;
         var vv = ensure();
         if (!vv) return;
-        vv.play().catch(function(){});
-        vv.classList.add("on");
+        vv.play().then(function(){
+          if (requested) vv.classList.add("on"); else vv.pause();
+        }).catch(function(){ vv.classList.remove("on"); });
       }
       function still(){
+        requested = false;
         if (v) { v.classList.remove("on"); v.pause(); }
       }
       if (touch && "IntersectionObserver" in window) {
@@ -950,13 +1078,15 @@
         link.addEventListener("pointerenter", wake);
         link.addEventListener("pointerleave", still);
       }
+      link.addEventListener("focusin", wake);
+      link.addEventListener("focusout", still);
     });
   })();
 
   // появление секций при скролле
   (function(){
     var els = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window)) {
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       els.forEach(function(e){ e.classList.add("on"); });
       return;
     }
@@ -965,7 +1095,7 @@
         if (en.isIntersecting) { en.target.classList.add("on"); io.unobserve(en.target); }
       });
     }, { threshold: 0.15 });
-    els.forEach(function(e){ io.observe(e); });
+    els.forEach(function(e){ e.classList.add("reveal-ready"); io.observe(e); });
   })();
 </script>
 
