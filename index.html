@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Грег Грим — тёмная проза. Книги и закулисье</title>
 <meta name="description" content="Официальный сайт Грега Грима. Читайте бесплатно новую редакцию «Страшных сказок», откройте цикл «Несущие» и загляните в Закулисье Теней.">
-<meta name="theme-color" content="#0b0d10">
+<meta name="theme-color" content="#0e1116">
 <link rel="canonical" href="https://greggrim.ru/">
-<link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="64x64" href="https://greg-grim-site.vercel.app/assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://greg-grim-site.vercel.app/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Грег Грим">
 <meta property="og:title" content="Грег Грим — тьма выдуманная. И невыдуманная.">
 <meta property="og:description" content="Книги, оживающие обложки и текст, спрятанный в темноте. Начните со «Страшных сказок» — бесплатно.">
 <meta property="og:url" content="https://greggrim.ru/">
-<meta property="og:image" content="https://greggrim.ru/assets/og-image.jpg">
+<meta property="og:image" content="https://greg-grim-site.vercel.app/assets/og-image.jpg">
 <meta property="og:image:alt" content="Ночной фонарь в тумане — миры Грега Грима">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -29,636 +29,10 @@
 })();
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://greggrim.ru/#website","url":"https://greggrim.ru/","name":"Грег Грим — тёмная проза","inLanguage":"ru","author":{"@id":"https://greggrim.ru/#author"}},{"@type":"Person","@id":"https://greggrim.ru/#author","name":"Грег Грим","url":"https://greggrim.ru/","image":"https://greggrim.ru/assets/brand/monogram.webp","sameAs":["https://www.litres.ru/author/greg-grim/","https://author.today/u/greggrim_official","https://vk.com/greggrim_official","https://t.me/greggrim_official"]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://greggrim.ru/#website","url":"https://greggrim.ru/","name":"Грег Грим — тёмная проза","inLanguage":"ru","author":{"@id":"https://greggrim.ru/#author"}},{"@type":"Person","@id":"https://greggrim.ru/#author","name":"Грег Грим","url":"https://greggrim.ru/","image":"https://greg-grim-site.vercel.app/assets/brand/monogram.webp","sameAs":["https://www.litres.ru/author/greg-grim/","https://author.today/u/greggrim_official","https://vk.com/greggrim_official","https://t.me/greggrim_official"]}]}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Alegreya:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --night:#0b0d10;
-    --soot:#11161c;
-    --card:#171d24;
-    --paper:#e6dfcf;
-    --fog:#a2a8ac;
-    --lamp:#c1a378;
-    --lamp-dim:#7f6d50;
-    --blood:#a67e72;
-    --cold:#9bb0c0;
-    --line:rgba(230,223,207,.13);
-    --display:"Cormorant Garamond",Georgia,serif;
-    --body:"Alegreya",georgia,serif;
-    --mono:"IBM Plex Mono",monospace;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:92px}
-  body{
-    background:var(--night);
-    color:var(--paper);
-    font-family:var(--body);
-    font-size:1.0625rem;
-    line-height:1.65;
-    overflow-x:hidden;
-  }
-  ::selection{background:var(--blood);color:var(--paper)}
-
-  /* плёночное зерно поверх всего */
-  body::after{
-    content:"";
-    position:fixed;inset:0;
-    pointer-events:none;
-    z-index:200;
-    opacity:.05;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  }
-
-  a{color:var(--lamp);text-decoration:none}
-  a:hover{color:var(--paper)}
-  a:focus-visible,button:focus-visible{outline:2px solid var(--lamp);outline-offset:3px}
-
-  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
-
-  /* ---------- шапка ---------- */
-  header{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(11,13,16,.94);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    min-height:76px;
-  }
-  .brand{
-    display:flex;align-items:center;gap:1rem;
-    font-family:var(--display);
-    font-size:1.08rem;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-    color:var(--paper);
-  }
-  .brand b{color:var(--paper);font-weight:500}
-  .brand-mark{width:40px;height:40px;border-radius:50%;display:block}
-  .nav-links{display:flex;gap:clamp(1rem,3vw,2.25rem);list-style:none}
-  .nav-links a{
-    font-family:var(--mono);
-    font-size:.75rem;
-    letter-spacing:.09em;
-    text-transform:uppercase;
-    color:var(--fog);
-  }
-  .nav-links a:hover{color:var(--lamp)}
-
-  /* ---------- хиро: фонарь ---------- */
-  .hero{
-    position:relative;
-    min-height:88svh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:9rem 1.25rem 5.5rem;
-    overflow:hidden;
-  }
-  /* конус фонарного света */
-  .hero::before{
-    content:"";
-    position:absolute;
-    top:-25%;left:50%;
-    width:130vmin;height:130vmin;
-    transform:translateX(-50%);
-    background:radial-gradient(closest-side, rgba(193,163,120,.12), rgba(193,163,120,.03) 45%, transparent 70%);
-    animation:flicker 9s infinite;
-    pointer-events:none;
-  }
-  /* туман у земли */
-  .hero::after{
-    content:"";
-    position:absolute;
-    bottom:0;left:0;right:0;height:38%;
-    background:linear-gradient(to top, rgba(17,22,28,.65), transparent);
-    pointer-events:none;
-  }
-  @keyframes flicker{
-    0%,100%{opacity:1}
-    3%{opacity:.55}
-    4%{opacity:1}
-    31%{opacity:.92}
-    32%{opacity:.6}
-    33%{opacity:1}
-    64%{opacity:.95}
-    78%{opacity:.7}
-    79%{opacity:1}
-  }
-  .hero-eyebrow{
-    font-family:var(--mono);
-    font-size:.8rem;
-    letter-spacing:.35em;
-    text-transform:uppercase;
-    color:var(--fog);
-    margin-bottom:2rem;
-  }
-  .hero-eyebrow em{font-style:normal;color:var(--blood)}
-  h1{
-    font-family:var(--display);
-    font-weight:600;
-    font-size:clamp(3.6rem,11.5vw,8.75rem);
-    line-height:1;
-    letter-spacing:.11em;
-    text-transform:uppercase;
-    text-shadow:0 0 55px rgba(193,163,120,.13);
-  }
-  .hero-tagline{
-    max-width:28em;
-    margin-top:1.5rem;
-    font-size:clamp(1.3rem,2.7vw,1.85rem);
-    font-style:italic;
-    color:var(--lamp);
-  }
-  .hero-typed{
-    margin-top:1.5rem;
-    font-family:var(--mono);
-    font-size:.85rem;
-    letter-spacing:.08em;
-    color:var(--fog);
-    min-height:1.4em;
-  }
-  .hero-typed .cursor{
-    display:inline-block;width:.55em;height:1.1em;
-    background:var(--lamp);
-    vertical-align:text-bottom;
-    animation:blink 1s steps(1) infinite;
-  }
-  @keyframes blink{50%{opacity:0}}
-  .hero-cta{
-    margin-top:3rem;
-    display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
-  }
-  .btn{
-    display:inline-block;
-    background:transparent;
-    cursor:pointer;
-    line-height:1.55;
-    font-family:var(--mono);
-    font-size:.8rem;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    padding:.9rem 1.5rem;
-    border:1px solid var(--lamp-dim);
-    color:var(--lamp);
-    transition:background .25s,color .25s,box-shadow .25s;
-  }
-  .btn:hover{
-    background:var(--lamp);
-    color:var(--night);
-    box-shadow:0 0 30px rgba(193,163,120,.15);
-  }
-  .btn--ghost{border-color:var(--line);color:var(--fog)}
-  .btn--ghost:hover{background:transparent;color:var(--paper);border-color:var(--fog);box-shadow:none}
-
-  /* ---------- секции ---------- */
-  section{padding:clamp(4.5rem,9vw,7.5rem) 0;position:relative}
-  .section-head{margin-bottom:clamp(2.5rem,5vw,4rem)}
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:.75rem;
-    letter-spacing:.3em;
-    text-transform:uppercase;
-    color:var(--lamp);
-    display:block;
-    margin-bottom:.9rem;
-  }
-  h2{
-    font-family:var(--display);
-    font-weight:500;
-    font-size:clamp(2.4rem,5vw,3.8rem);
-    letter-spacing:.015em;
-    line-height:1.1;
-  }
-
-  /* ---------- книги ---------- */
-  #books{background:var(--soot);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .shelf{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:clamp(1.5rem,3vw,2.5rem);
-  }
-  .book{display:flex;flex-direction:column}
-  .cover{
-    position:relative;
-    aspect-ratio:2/3;
-    background:
-      radial-gradient(ellipse at 50% 30%, #232a35, #12161d 75%);
-    border:1px solid var(--line);
-    box-shadow:inset 6px 0 12px -6px rgba(0,0,0,.8), 0 14px 30px -14px rgba(0,0,0,.9);
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    padding:1.4rem 1.1rem 1.1rem;
-    transition:transform .35s ease, box-shadow .35s ease;
-  }
-  .book a.cover-link{display:block;color:inherit}
-  .book:hover .cover{
-    transform:translateY(-8px) rotate(-.6deg);
-    box-shadow:inset 6px 0 12px -6px rgba(0,0,0,.8),
-      0 24px 45px -16px rgba(0,0,0,.95),
-      0 0 45px -10px rgba(226,165,63,.28);
-  }
-  /* рамка старого покетбука (только для типографских обложек) */
-  .cover:not(.cover--img)::before{
-    content:"";
-    position:absolute;inset:9px;
-    border:1px solid rgba(226,165,63,.28);
-    pointer-events:none;
-  }
-  .cover--img{padding:0}
-  .cover-img{
-    position:absolute;inset:0;
-    width:100%;height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  /* лёгкая виньетка поверх обложки, чтобы вписать её в темноту сайта */
-  .cover--img::after{
-    content:"";
-    position:absolute;inset:0;
-    box-shadow:inset 0 0 60px 10px rgba(10,13,18,.55);
-    pointer-events:none;
-  }
-  /* оживающая обложка: видео проявляется поверх статики при наведении */
-  .live-media{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;
-    opacity:0;
-    transition:opacity .55s ease;
-  }
-  .live-media.on{opacity:1}
-  .cover-genre{
-    font-family:var(--mono);
-    font-size:.62rem;
-    letter-spacing:.24em;
-    text-transform:uppercase;
-    color:var(--fog);
-    text-align:center;
-  }
-  .cover-title{
-    font-family:var(--display);
-    font-weight:500;
-    font-size:clamp(1.3rem,1.6vw,1.6rem);
-    line-height:1.15;
-    letter-spacing:.05em;
-    text-transform:uppercase;
-    text-align:center;
-    color:var(--paper);
-  }
-  .book--featured .cover-title{color:var(--lamp)}
-  .cover-author{
-    font-family:var(--mono);
-    font-size:.62rem;
-    letter-spacing:.3em;
-    text-transform:uppercase;
-    color:var(--fog);
-    text-align:center;
-  }
-  .badge{
-    position:absolute;
-    top:-1px;right:14px;
-    font-family:var(--mono);
-    font-size:.6rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    padding:.35rem .5rem .4rem;
-    background:#5a3e36;
-    color:var(--paper);
-  }
-  .badge--free{background:var(--lamp);color:var(--night)}
-  .book-meta{
-    font-family:var(--mono);
-    font-size:.72rem;
-    letter-spacing:.06em;
-    color:var(--fog);
-    margin-top:1.1rem;
-  }
-  .book-meta .star{color:var(--lamp)}
-  .book-teaser{
-    font-size:.95rem;
-    color:var(--fog);
-    font-style:italic;
-    margin-top:.5rem;
-    flex-grow:1;
-  }
-  .book-link{
-    font-family:var(--mono);
-    font-size:.72rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    margin-top:.9rem;
-  }
-
-  /* ---------- об авторе ---------- */
-  #about .grid{
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:clamp(2rem,6vw,5rem);
-    align-items:start;
-  }
-  #about p+p{margin-top:1.2em}
-  #about .lead{font-size:1.25rem;font-style:italic;color:var(--paper)}
-  .dossier{
-    border:1px solid var(--line);
-    background:var(--soot);
-    padding:1.75rem 1.5rem;
-    font-family:var(--mono);
-    font-size:.78rem;
-    line-height:2.1;
-    color:var(--fog);
-  }
-  .dossier-title{
-    color:var(--blood);
-    letter-spacing:.24em;
-    text-transform:uppercase;
-    border-bottom:1px solid var(--line);
-    padding-bottom:.7rem;
-    margin-bottom:.7rem;
-  }
-  .dossier b{color:var(--paper);font-weight:500}
-
-  /* ---------- цитата ---------- */
-  .quote-band{
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    background:
-      radial-gradient(ellipse at 50% 120%, rgba(157,52,56,.12), transparent 60%),
-      var(--night);
-    text-align:center;
-  }
-  blockquote{
-    max-width:30em;
-    margin:0 auto;
-    font-size:clamp(1.4rem,3.4vw,2.1rem);
-    font-style:italic;
-    line-height:1.45;
-  }
-  blockquote footer{
-    margin-top:1.5rem;
-    font-family:var(--mono);
-    font-style:normal;
-    font-size:.75rem;
-    letter-spacing:.3em;
-    text-transform:uppercase;
-    color:var(--fog);
-  }
-
-  /* ---------- контакт / подвал ---------- */
-  #contact{text-align:center}
-  #contact p{max-width:32em;margin:0 auto;color:var(--fog)}
-  .contact-row{
-    margin-top:2.5rem;
-    display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
-  }
-  .colophon{
-    border-top:1px solid var(--line);
-    padding:2rem 0 5.5rem;
-    text-align:center;
-    font-family:var(--mono);
-    font-size:.72rem;
-    letter-spacing:.1em;
-    color:var(--fog);
-  }
-  .colophon span{color:var(--blood)}
-
-  /* ---------- неоновая вывеска: буквы имени ---------- */
-  .h1-letter{display:inline-block}
-  .h1-letter.flick{animation:letterFlick .5s steps(2,end)}
-  @keyframes letterFlick{
-    0%{opacity:1}20%{opacity:.2}30%{opacity:1}
-    50%{opacity:.45}60%{opacity:1}80%{opacity:.25}100%{opacity:1}
-  }
-
-  /* ---------- тёмная комната: фонарик ---------- */
-  #manuscript{background:#0a0d12;border-top:1px solid var(--line)}
-  .darkroom{
-    position:relative;
-    border:1px solid var(--line);
-    background:var(--soot);
-    padding:clamp(2rem,5vw,3.5rem);
-    overflow:hidden;
-    touch-action:pan-y;
-  }
-  .darkroom.interactive:not(.lit){cursor:none}
-  .darkroom .ms-label{
-    font-family:var(--mono);
-    font-size:.72rem;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-    color:var(--blood);
-    margin-bottom:1.5rem;
-  }
-  .darkroom .ms-text{
-    max-width:38em;
-    font-size:clamp(1.05rem,1.8vw,1.2rem);
-    line-height:1.85;
-  }
-  .darkroom .ms-text p+p{margin-top:1em}
-  /* костлявая рука прячется у правого края тёмной комнаты */
-  .dark-hand{
-    position:absolute;
-    right:0;
-    top:32%;
-    width:clamp(180px,42%,330px);
-    height:auto;
-    transform:translateX(106%) rotate(2deg);
-    transition:transform 2.4s cubic-bezier(.22,.6,.28,1);
-    pointer-events:none;
-  }
-  .dark-hand.reach{transform:translateX(16%) rotate(-3deg)}
-  .darkroom.lit .dark-hand{
-    transform:translateX(106%) rotate(2deg);
-    transition-duration:.45s;
-  }
-  .veil{
-    position:absolute;inset:0;
-    pointer-events:none;
-    background:radial-gradient(circle 140px at var(--x,-20%) var(--y,-20%),
-      rgba(10,13,18,0) 0,
-      rgba(10,13,18,.5) 45%,
-      rgba(10,13,18,.985) 72%);
-    opacity:0;
-    transition:opacity .7s ease;
-  }
-  .darkroom.interactive:not(.lit) .veil{opacity:1}
-  .darkroom.lit .veil{opacity:0}
-  .manuscript-hint{
-    display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;
-    margin-top:1.5rem;
-  }
-  .manuscript-hint .hint{
-    font-family:var(--mono);
-    font-size:.72rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--fog);
-  }
-  .btn--small{padding:.6rem 1.2rem;font-size:.7rem}
-
-  /* ---------- глянец фонаря на обложках ---------- */
-  .cover-link{display:block;perspective:800px}
-  .cover .glare{
-    position:absolute;inset:0;
-    pointer-events:none;
-    opacity:0;
-    transition:opacity .3s;
-    background:radial-gradient(circle 150px at var(--gx,50%) var(--gy,40%),
-      rgba(226,165,63,.2), transparent 70%);
-  }
-  .book:hover .cover .glare{opacity:1}
-
-  /* ---------- фоновые видео-ленты ---------- */
-  .ambience{
-    position:relative;
-    height:52vh;
-    min-height:320px;
-    overflow:hidden;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-  }
-  .ambience video{
-    position:absolute;inset:0;
-    width:100%;height:100%;
-    object-fit:cover;
-    opacity:0;
-    transition:opacity 1.2s ease;
-  }
-  .ambience.playing video{opacity:1}
-  /* виньетки сверху и снизу, чтобы видео тонуло в ночи страницы */
-  .ambience::before,.ambience::after{
-    content:"";
-    position:absolute;left:0;right:0;height:30%;
-    z-index:2;pointer-events:none;
-  }
-  .ambience::before{top:0;background:linear-gradient(to bottom, var(--night), transparent)}
-  .ambience::after{bottom:0;background:linear-gradient(to top, var(--night), transparent)}
-  .ambience .amb-caption{
-    position:absolute;
-    left:50%;bottom:14%;
-    transform:translateX(-50%);
-    z-index:3;
-    font-family:var(--mono);
-    font-size:.72rem;
-    letter-spacing:.34em;
-    text-transform:uppercase;
-    color:rgba(231,225,211,.75);
-    text-shadow:0 1px 8px rgba(0,0,0,.9);
-    white-space:nowrap;
-  }
-  @media (prefers-reduced-motion:reduce){
-    html:not([data-motion="on"]) .ambience{display:none}
-  }
-
-  /* ---------- появление при скролле ---------- */
-  .reveal{opacity:1;transform:none}
-  .reveal.reveal-ready{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-  .reveal.reveal-ready.on{opacity:1;transform:none}
-
-  /* ---------- первое чтение: новая редакция сказок ---------- */
-  .skip-link{position:fixed;top:-80px;left:1rem;z-index:300;background:var(--paper);color:var(--night);padding:.7rem 1rem}
-  .skip-link:focus{top:1rem;color:var(--night)}
-  .hero-frame{position:relative;z-index:1;width:min(100%,1040px);padding:3.5rem 1rem}
-  .hero-frame::before,.hero-frame::after{content:"";position:absolute;top:0;bottom:0;width:12%;border-top:1px solid var(--lamp-dim);border-bottom:1px solid var(--lamp-dim);opacity:.45;pointer-events:none}
-  .hero-frame::before{left:0;border-left:1px solid var(--lamp-dim)}
-  .hero-frame::after{right:0;border-right:1px solid var(--lamp-dim)}
-  .hero-tagline span{color:var(--cold)}
-  .hero-note{font-size:1rem;color:var(--fog);margin-top:1rem}
-  #start{background:var(--night);border-top:1px solid var(--line)}
-  .start-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2.5rem,7vw,6rem);align-items:center}
-  .start-cover{display:block;max-width:350px;justify-self:center;position:relative;width:100%;box-shadow:0 22px 65px rgba(0,0,0,.5)}
-  .start-cover::after{content:"";position:absolute;inset:0;border:1px solid rgba(230,223,207,.2);pointer-events:none}
-  .start-cover img{display:block;width:100%;height:auto}
-  .start-copy .eyebrow{color:var(--cold)}
-  .start-copy h2{font-size:clamp(2.8rem,5.5vw,4.5rem);line-height:.98;margin-bottom:1.5rem}
-  .start-copy p{font-size:1.15rem;line-height:1.75;color:var(--fog);max-width:29em}
-  .start-copy p+p{margin-top:1rem}
-  .start-copy .start-lead{font-size:1.35rem;color:var(--paper);line-height:1.55}
-  .start-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
-  .btn--solid{background:var(--lamp);color:var(--night);border-color:var(--lamp)}
-  .btn--solid:hover{background:var(--paper);border-color:var(--paper);box-shadow:none}
-  .start-copy .edition-note{margin-top:1rem;font-size:.92rem;color:var(--fog)}
-  .book-title{font-family:var(--display);font-size:1.6rem;font-weight:500;line-height:1.15;margin-top:1rem;color:var(--paper)}
-  .book .book-meta{margin-top:.55rem;line-height:1.7}
-  .book-teaser{font-size:1.05rem}
-  .badge--complete{background:var(--cold);color:var(--night)}
-  .shelf-note{font-size:1.12rem;color:var(--fog);margin-top:1rem;max-width:38em}
-  .practice{display:grid;grid-template-columns:160px minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);border-top:1px solid var(--line);margin-top:4rem;padding-top:3rem;align-items:start}
-  .practice h3{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);font-weight:500;line-height:1.05;margin-bottom:1rem}
-  .practice p{color:var(--fog);max-width:36em;font-size:1.08rem}
-  .practice .cover{aspect-ratio:2400/3405}
-  .practice .eyebrow{font-size:.65rem;margin-bottom:.7rem}
-  .practice .start-actions{margin-top:1.4rem}
-  .practice .btn{font-size:.68rem;padding:.7rem 1rem}
-  .motion-controls{position:fixed;bottom:1.25rem;right:1.25rem;z-index:110}
-  .motion-toggle{background:var(--soot);border:1px solid var(--line);color:var(--paper);font-family:var(--mono);font-size:.66rem;padding:.65rem .85rem;min-height:44px;cursor:pointer;letter-spacing:.03em}
-  .motion-toggle:hover{border-color:var(--lamp);color:var(--lamp)}
-  [hidden]{display:none!important}
-  html[data-motion="off"]{scroll-behavior:auto}
-  html[data-motion="off"] *,html[data-motion="off"] *::before,html[data-motion="off"] *::after{animation:none!important;transition:none!important}
-  html[data-motion="off"] .ambience,html[data-motion="off"] .dark-hand{display:none}
-  html[data-motion="off"] .reveal{opacity:1;transform:none}
-  html[data-motion="off"] .cover{transform:none!important}
-  html[data-motion="off"] .live-media{opacity:0!important}
-  .dossier-title{color:var(--lamp)}
-  .dossier a{display:inline-block}
-  .reading-hubs{display:flex;gap:1rem 1.75rem;flex-wrap:wrap;justify-content:center;margin-top:2rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.04em}
-  .contact-monogram{width:76px;height:76px;border-radius:50%;display:block;margin:0 auto 1.8rem}
-
-  @media (max-width:760px){
-    #about .grid{grid-template-columns:1fr}
-    .shelf{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .start-layout{grid-template-columns:1fr;gap:3rem}
-    .start-cover{max-width:270px}
-    .start-copy{max-width:35em;margin:0 auto}
-    .nav-links{gap:1rem}
-    .nav-links a{font-size:.68rem}
-  }
-  @media (max-width:560px){
-    .nav{min-height:68px;gap:1rem}
-    .brand{gap:.6rem;font-size:.98rem;letter-spacing:.1em;white-space:nowrap}
-    .brand-mark{width:34px;height:34px}
-    .nav-secondary{display:none}
-    .nav-links{gap:.9rem}
-    .motion-controls{bottom:1rem;right:1rem}
-    .hero{min-height:84svh;padding:7.5rem 1.25rem 3.5rem}
-    .hero-frame{padding:2.8rem .5rem}
-    .hero-frame::before,.hero-frame::after{width:9%}
-    .hero-eyebrow{font-size:.63rem;letter-spacing:.2em}
-    h1{font-size:clamp(3.25rem,12.5vw,4.5rem);letter-spacing:.055em}
-    .hero-tagline{font-size:1.35rem;max-width:17em;margin-left:auto;margin-right:auto}
-    .hero-typed{font-size:.69rem;letter-spacing:.02em;min-height:2.8em;max-width:26em;margin-left:auto;margin-right:auto}
-    .hero-cta{margin-top:1.5rem;gap:.7rem}
-    .hero-cta .btn{font-size:.65rem;padding:.8rem 1rem}
-    .ambience{height:38vh;min-height:230px}
-    .ambience .amb-caption{font-size:.6rem;letter-spacing:.13em;white-space:normal;width:90%;text-align:center}
-    .start-actions{flex-direction:column;align-items:stretch;text-align:center}
-    .start-copy .start-lead{font-size:1.2rem}
-    .start-copy p{font-size:1.08rem}
-    .contact-row{flex-direction:column;align-items:stretch}
-    .contact-row .btn{text-align:center}
-    .practice{grid-template-columns:95px minmax(0,1fr);gap:1.2rem}
-    .practice h3{font-size:1.8rem}
-    .practice p{font-size:1rem}
-    .practice .start-actions{align-items:flex-start;text-align:left}
-  }
-  @media (max-width:440px){
-    .shelf{grid-template-columns:1fr;max-width:300px;margin-inline:auto;gap:3rem}
-  }
-  @media (prefers-reduced-motion:reduce){
-    html:not([data-motion="on"]){scroll-behavior:auto}
-    html:not([data-motion="on"]) .hero::before,html:not([data-motion="on"]) .hero-typed .cursor,html:not([data-motion="on"]) .h1-letter.flick{animation:none}
-    html:not([data-motion="on"]) .reveal,html:not([data-motion="on"]) .reveal.reveal-ready{opacity:1;transform:none;transition:none}
-    html:not([data-motion="on"]) .cover,html:not([data-motion="on"]) .book:hover .cover{transition:none;transform:none}
-    html:not([data-motion="on"]) .dark-hand{display:none}
-    html:not([data-motion="on"]) .veil{transition:none}
-  }
-</style>
+<link rel="stylesheet" href="https://greg-grim-site.vercel.app/assets/fonts/fonts.css">
+<link rel="stylesheet" href="https://greg-grim-site.vercel.app/assets/css/site.css?v=20261106c">
 </head>
 <body>
 
@@ -666,7 +40,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="Грег Грим — на главную"><img class="brand-mark" src="assets/brand/monogram.webp" width="40" height="40" alt="">ГРЕГ ГРИМ</a>
+    <a class="brand" href="#top" aria-label="Грег Грим — на главную"><img class="brand-mark" src="https://greg-grim-site.vercel.app/assets/brand/monogram.webp" width="40" height="40" alt="">ГРЕГ ГРИМ</a>
     <nav aria-label="Основная навигация">
       <ul class="nav-links">
         <li><a href="#books">Книги</a></li>
@@ -696,11 +70,18 @@
     </div>
   </section>
 
+  <!-- ФОНОВАЯ ЛЕНТА: ночная улица -->
+  <div class="ambience" aria-hidden="true">
+    <img class="ambience-poster" src="https://greg-grim-site.vercel.app/assets/posters/street.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+    <video data-src="https://greg-grim-site.vercel.app/assets/video/street-ambience.mp4" poster="https://greg-grim-site.vercel.app/assets/posters/street.webp" muted loop playsinline preload="none"></video>
+    <span class="amb-caption">// город спит. кто-то — нет.</span>
+  </div>
+
   <!-- ПЕРВОЕ ЗНАКОМСТВО: НОВАЯ РЕДАКЦИЯ -->
   <section id="start" aria-labelledby="start-title">
     <div class="wrap start-layout">
-      <a class="start-cover reveal" data-live="assets/video/skazki-revised-live.mp4" href="https://author.today/work/658827" target="_blank" rel="noopener" aria-label="Читать «Страшные сказки» на Author.Today">
-        <img src="assets/covers/skazki-revised.webp" width="720" height="1080" alt="Страшные сказки. Книга первая — обложка с приютом и раскрытой тетрадью" loading="lazy">
+      <a class="start-cover reveal" data-live="https://greg-grim-site.vercel.app/assets/video/skazki-revised-live.mp4" href="/books/strashnye-skazki/" aria-label="«Страшные сказки»: о книге и начало текста">
+        <img src="https://greg-grim-site.vercel.app/assets/covers/skazki-revised.webp" width="720" height="1080" alt="Страшные сказки. Книга первая — обложка с приютом и раскрытой тетрадью" loading="lazy">
       </a>
       <div class="start-copy reveal">
         <span class="eyebrow">Новая редакция · Бесплатно</span>
@@ -709,7 +90,8 @@
         <p>Взрослые говорят, что у исчезнувших детей теперь есть семьи. В тетради Семёна рядом со сказками появляются имена.</p>
         <p>За дверью подвала кто-то плачет. Алёна слышит. Засов прибит снаружи, на высоте взрослого плеча.</p>
         <div class="start-actions">
-          <a class="btn btn--solid" href="https://author.today/work/658827" target="_blank" rel="noopener">Читать на АТ ↗</a>
+          <a class="btn btn--solid" href="/books/strashnye-skazki/#excerpt">Прочитать начало здесь</a>
+          <a class="btn btn--ghost" href="https://author.today/work/658827" target="_blank" rel="noopener">Читать на АТ ↗</a>
           <a class="btn btn--ghost" href="https://litnet.com/ru/book/strashnye-skazki-b630630" target="_blank" rel="noopener">Читать на Литнете ↗</a>
         </div>
         <p class="edition-note">Новая редакция «Сказок взрослым на ночь». Карточка Литрес с аудиоверсией — <a href="#tales-litres">ниже на книжной полке</a>.</p>
@@ -717,26 +99,20 @@
     </div>
   </section>
 
-  <!-- ФОНОВАЯ ЛЕНТА: ночная улица -->
-  <div class="ambience" aria-hidden="true">
-    <video src="assets/video/street-ambience.mp4" muted loop playsinline preload="metadata"></video>
-    <span class="amb-caption">// город спит. кто-то — нет.</span>
-  </div>
-
   <!-- КНИГИ -->
   <section id="books">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Книжная полка</span>
         <h2>У каждой двери — своя цена</h2>
-        <p class="shelf-note">Цикл «Несущие» начинается с «Укутанной в ночь». «Мрак, друг мой» — вторая книга, доступная целиком.</p>
+        <p class="shelf-note">Для первого знакомства — <a href="/books/strashnye-skazki/">бесплатные «Страшные сказки»</a>. Для погружения в цикл — <a href="/books/nesushchie/">«Несущие»: порядок чтения и фрагменты</a>.</p>
       </div>
       <div class="shelf">
 
         <article class="book book--featured reveal">
-          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/ukutannaya-v-noch-73834499/" target="_blank" rel="noopener">
-            <div class="cover cover--img" data-live="assets/video/ukutannaya-live.mp4">
-              <img class="cover-img" src="assets/covers/ukutannaya.webp" alt="Обложка романа «Укутанная в ночь»" loading="lazy">
+          <a class="cover-link" href="/books/nesushchie/#ukutannaya" aria-label="«Укутанная в ночь»: о книге и фрагмент">
+            <div class="cover cover--img" data-live="https://greg-grim-site.vercel.app/assets/video/ukutannaya-live.mp4">
+              <img class="cover-img" src="https://greg-grim-site.vercel.app/assets/covers/ukutannaya.webp" alt="Обложка романа «Укутанная в ночь»" loading="lazy">
               <span class="badge">аудио</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
@@ -744,13 +120,14 @@
           <h3 class="book-title">Укутанная в ночь</h3>
           <p class="book-meta">Несущие · Книга 1 · Текст и аудио</p>
           <p class="book-teaser">Ночь здесь — не время суток. Она действующее лицо.</p>
+          <a class="book-details" href="/books/nesushchie/#ukutannaya">О книге и фрагмент →</a>
           <a class="book-link" href="https://www.litres.ru/book/greg-grim/ukutannaya-v-noch-73834499/" target="_blank" rel="noopener">Читать на Литрес →</a>
         </article>
 
         <article class="book reveal">
-          <a class="cover-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">
-            <div class="cover cover--img" data-live="assets/video/mrak-cover.mp4">
-              <img class="cover-img" src="assets/covers/mrak-poster.webp" alt="Обложка романа «Мрак, друг мой»" loading="lazy">
+          <a class="cover-link" href="/books/nesushchie/#mrak" aria-label="«Мрак, друг мой»: о книге и фрагмент">
+            <div class="cover cover--img" data-live="https://greg-grim-site.vercel.app/assets/video/mrak-cover.mp4">
+              <img class="cover-img" src="https://greg-grim-site.vercel.app/assets/covers/mrak-poster.webp" alt="Обложка романа «Мрак, друг мой»" loading="lazy">
               <span class="badge badge--complete">Целиком</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
@@ -758,13 +135,14 @@
           <h3 class="book-title">Мрак, друг мой</h3>
           <p class="book-meta">Несущие · Книга 2 · Полный текст</p>
           <p class="book-teaser">Петербург не строился. Он выращивался.</p>
+          <a class="book-details" href="/books/nesushchie/#mrak">О книге и фрагмент →</a>
           <a class="book-link" href="https://www.litres.ru/book/greg-grim/mrak-drug-moy-74000009/" target="_blank" rel="noopener">Читать на Литрес →</a>
         </article>
 
         <article class="book reveal">
           <a class="cover-link" href="https://t.me/greggrim_official" target="_blank" rel="noopener" aria-label="Новости о «Реестре душ» в Telegram">
-            <div class="cover cover--img" data-live="assets/video/reestr-dush-live.mp4">
-              <img class="cover-img" src="assets/covers/reestr-dush.webp" alt="Реестр душ — обложка новой рукописи Грега Грима" loading="lazy">
+            <div class="cover cover--img" data-live="https://greg-grim-site.vercel.app/assets/video/reestr-dush-live.mp4">
+              <img class="cover-img" src="https://greg-grim-site.vercel.app/assets/covers/reestr-dush.webp" alt="Реестр душ — обложка новой рукописи Грега Грима" loading="lazy">
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
@@ -776,8 +154,8 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/14-gerc-73857393/" target="_blank" rel="noopener">
-            <div class="cover cover--img" data-live="assets/video/14-gerc-live.mp4">
-              <img class="cover-img" src="assets/covers/14-gerc.webp" alt="Обложка романа «14 Герц»" loading="lazy">
+            <div class="cover cover--img" data-live="https://greg-grim-site.vercel.app/assets/video/14-gerc-live.mp4">
+              <img class="cover-img" src="https://greg-grim-site.vercel.app/assets/covers/14-gerc.webp" alt="Обложка романа «14 Герц»" loading="lazy">
               <i class="glare" aria-hidden="true"></i>
             </div>
           </a>
@@ -789,8 +167,8 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/ohotnik-i-legion-73952694/" target="_blank" rel="noopener">
-            <div class="cover cover--img" data-live="assets/video/ohotnik-live.mp4">
-              <img class="cover-img" src="assets/covers/ohotnik.webp" alt="Обложка романа «Охотник и Легион»" loading="lazy">
+            <div class="cover cover--img" data-live="https://greg-grim-site.vercel.app/assets/video/ohotnik-live.mp4">
+              <img class="cover-img" src="https://greg-grim-site.vercel.app/assets/covers/ohotnik.webp" alt="Обложка романа «Охотник и Легион»" loading="lazy">
               <span class="badge">аудио</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
@@ -803,8 +181,8 @@
 
         <article class="book reveal" id="tales-litres">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/skazki-vzroslym-na-noch-71162299/" target="_blank" rel="noopener">
-            <div class="cover cover--img" data-live="assets/video/skazki-live.mp4">
-              <img class="cover-img" src="assets/covers/skazki.webp" alt="Обложка сборника «Сказки взрослым на ночь»" loading="lazy">
+            <div class="cover cover--img" data-live="https://greg-grim-site.vercel.app/assets/video/skazki-live.mp4">
+              <img class="cover-img" src="https://greg-grim-site.vercel.app/assets/covers/skazki.webp" alt="Обложка сборника «Сказки взрослым на ночь»" loading="lazy">
               <span class="badge">аудио</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
@@ -817,8 +195,8 @@
 
         <article class="book reveal">
           <a class="cover-link" href="https://www.litres.ru/book/greg-grim/princessa-i-nischiy-64131146/" target="_blank" rel="noopener">
-            <div class="cover cover--img" data-live="assets/video/princessa-live.mp4">
-              <img class="cover-img" src="assets/covers/princessa.webp" alt="Обложка романа «Принцесса и нищий»" loading="lazy">
+            <div class="cover cover--img" data-live="https://greg-grim-site.vercel.app/assets/video/princessa-live.mp4">
+              <img class="cover-img" src="https://greg-grim-site.vercel.app/assets/covers/princessa.webp" alt="Обложка романа «Принцесса и нищий»" loading="lazy">
               <span class="badge badge--free">бесплатно</span>
               <i class="glare" aria-hidden="true"></i>
             </div>
@@ -830,10 +208,10 @@
         </article>
 
       </div>
-      <aside class="practice reveal" aria-labelledby="practice-title">
+      <aside class="practice reveal" id="practice" aria-labelledby="practice-title">
         <a class="cover-link" href="https://www.litres.ru/74341948/" target="_blank" rel="noopener" aria-label="Читать бесплатно «Не хочу быть как все» на Литрес">
-          <div class="cover cover--img" data-live="assets/video/tochka-otkaza-live.mp4">
-            <img class="cover-img" src="assets/covers/tochka-otkaza.webp" alt="Не хочу быть как все. Как собрать себя через боль — обложка книги" loading="lazy">
+          <div class="cover cover--img" data-live="https://greg-grim-site.vercel.app/assets/video/tochka-otkaza-live.mp4">
+            <img class="cover-img" src="https://greg-grim-site.vercel.app/assets/covers/tochka-otkaza.webp" alt="Не хочу быть как все. Как собрать себя через боль — обложка книги" loading="lazy">
             <i class="glare" aria-hidden="true"></i>
           </div>
         </a>
@@ -852,7 +230,8 @@
 
   <!-- ФОНОВАЯ ЛЕНТА: дверь в тёмную комнату -->
   <div class="ambience" aria-hidden="true">
-    <video src="assets/video/door-ambience.mp4" muted loop playsinline preload="metadata"></video>
+    <img class="ambience-poster" src="https://greg-grim-site.vercel.app/assets/posters/door.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+    <video data-src="https://greg-grim-site.vercel.app/assets/video/door-ambience.mp4" poster="https://greg-grim-site.vercel.app/assets/posters/door.webp" muted loop playsinline preload="none"></video>
     <span class="amb-caption">// дверь не заперта. она ждёт.</span>
   </div>
 
@@ -886,7 +265,7 @@
       <div class="manuscript-hint reveal">
         <span class="hint" id="hint">Фрагмент первой главы</span>
         <button class="btn btn--small" id="lightSwitch" type="button" aria-pressed="false" hidden>Включить свет</button>
-        <a class="book-link" href="https://author.today/work/658827" target="_blank" rel="noopener">Продолжить читать →</a>
+        <a class="book-link" href="/books/strashnye-skazki/#excerpt">Читать начало →</a>
       </div>
     </div>
   </section>
@@ -906,8 +285,8 @@
         </div>
         <aside class="dossier reveal" aria-label="Маршрут читателя">
           <div class="dossier-title">Если вы здесь впервые</div>
-          Начать: <a href="#start">«Страшные сказки»</a><br>
-          Продолжить: <a href="#books">цикл «Несущие»</a><br>
+          Начать: <a href="/books/strashnye-skazki/">«Страшные сказки»</a><br>
+          Продолжить: <a href="/books/nesushchie/">цикл «Несущие»</a><br>
           Остаться: <a href="#contact">«Закулисье Теней»</a><br>
           Читать: <b>в своём темпе</b><br>
           Свет: <b>на ваше усмотрение</b>
@@ -928,18 +307,24 @@
 
   <!-- ФОНОВАЯ ЛЕНТА: кабинет писателя -->
   <div class="ambience" aria-hidden="true">
-    <video src="assets/video/den-ambience.mp4" muted loop playsinline preload="metadata"></video>
+    <img class="ambience-poster" src="https://greg-grim-site.vercel.app/assets/posters/den.webp" width="960" height="540" alt="" loading="lazy" decoding="async">
+    <video data-src="https://greg-grim-site.vercel.app/assets/video/den-ambience.mp4" poster="https://greg-grim-site.vercel.app/assets/posters/den.webp" muted loop playsinline preload="none"></video>
     <span class="amb-caption">// последнее слово ещё не написано.</span>
   </div>
 
   <!-- КОНТАКТ -->
   <section id="contact">
     <div class="wrap reveal">
-      <img class="contact-monogram" src="assets/brand/monogram.webp" width="76" height="76" alt="Монограмма ГГ" loading="lazy">
+      <img class="contact-monogram" src="https://greg-grim-site.vercel.app/assets/brand/monogram.webp" width="76" height="76" alt="Монограмма ГГ" loading="lazy">
       <div class="section-head">
         <span class="eyebrow">Ближе к автору</span>
         <h2>Закулисье Теней</h2>
       </div>
+      <article class="dispatch" aria-labelledby="dispatch-title">
+        <span class="dispatch-date">Из закулисья · <time datetime="2026-11-06">6 ноября 2026</time></span>
+        <h3 id="dispatch-title">Первые страницы уже здесь</h3>
+        <p>Теперь в книгу можно заглянуть прямо на сайте. <a href="/books/strashnye-skazki/#excerpt">Крыльцо приюта</a> или <a href="/books/nesushchie/">первая встреча с «Несущими»</a> — выберите, с какой двери начать.</p>
+      </article>
       <p>Черновики, новые книги и то, что осталось за пределами страниц. Здесь можно задать вопрос, оставить отзыв или рассказать, на каком месте пришлось включить свет.</p>
       <div class="contact-row">
         <a class="btn btn--solid" href="https://t.me/greggrim_official" target="_blank" rel="noopener">Telegram ↗</a>
@@ -959,250 +344,7 @@
   <div class="wrap">© 2026 Грег Грим · <a href="https://greggrim.ru/">greggrim.ru</a><br><span>Тьма выдуманная. И невыдуманная.</span></div>
 </footer>
 
-<script>
-  // Выбор читателя действует на все движения и видео, включая новые обложки.
-  var grimMotion = (function(){
-    var query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var saved = null;
-    try { saved = localStorage.getItem("greggrim-motion"); } catch (e) {}
-    var allowed = saved === "on" || (saved !== "off" && !query.matches);
-    var listeners = [];
-    var toggle = document.getElementById("motionToggle");
-    function active(){ return allowed && !document.hidden; }
-    function sync(){
-      document.documentElement.setAttribute("data-motion", allowed ? "on" : "off");
-      toggle.textContent = allowed ? "Без анимации" : "С анимацией";
-      toggle.setAttribute("aria-label", allowed ? "Выключить анимацию на сайте" : "Включить анимацию на сайте");
-      if (!active()) document.querySelectorAll("video").forEach(function(v){ v.pause(); });
-      listeners.forEach(function(fn){ fn(active()); });
-    }
-    toggle.hidden = false;
-    toggle.addEventListener("click", function(){
-      allowed = !allowed;
-      saved = allowed ? "on" : "off";
-      try { localStorage.setItem("greggrim-motion", saved); } catch (e) {}
-      sync();
-    });
-    function systemChange(){ if (saved !== "on" && saved !== "off") { allowed = !query.matches; sync(); } }
-    if (query.addEventListener) query.addEventListener("change", systemChange); else query.addListener(systemChange);
-    document.addEventListener("visibilitychange", sync);
-    sync();
-    return { active:active, subscribe:function(fn){ listeners.push(fn); fn(active()); } };
-  })();
-
-  // печатная машинка в хиро
-  (function(){
-    var text = "Если в доме слишком тихо, это ещё не значит, что он пуст.";
-    var el = document.getElementById("typed");
-    var i = 0, timer = null, complete = false;
-    function tick(){
-      if (!grimMotion.active()) return;
-      el.textContent = text.slice(0, ++i);
-      if (i < text.length) timer = setTimeout(tick, 45 + Math.random() * 70); else complete = true;
-    }
-    grimMotion.subscribe(function(active){
-      clearTimeout(timer);
-      if (!active) { el.textContent = text; complete = true; return; }
-      if (!complete) { el.textContent = ""; timer = setTimeout(tick, 900); }
-    });
-  })();
-
-  // тёмная комната: фонарик за курсором + выключатель
-  (function(){
-    var room = document.getElementById("darkroom");
-    var veil = room.querySelector(".veil");
-    var btn = document.getElementById("lightSwitch");
-    var hint = document.getElementById("hint");
-
-    var cursorHint = window.matchMedia("(pointer: coarse)").matches ? "водите по тексту пальцем, как фонариком" : "водите по тексту, как фонариком";
-    hint.textContent = cursorHint;
-    var hand = room.querySelector(".dark-hand");
-    room.addEventListener("pointermove", function(e){
-      var r = room.getBoundingClientRect();
-      var x = e.clientX - r.left, y = e.clientY - r.top;
-      veil.style.setProperty("--x", x + "px");
-      veil.style.setProperty("--y", y + "px");
-      // луч у правого края — рука тянется к свету
-      if (hand && grimMotion.active() && !room.classList.contains("lit")) {
-        hand.classList.toggle("reach", x / r.width > 0.68);
-      }
-    });
-    room.addEventListener("pointerleave", function(){
-      veil.style.setProperty("--x", "-20%");
-      veil.style.setProperty("--y", "-20%");
-      if (hand) hand.classList.remove("reach");
-    });
-    btn.addEventListener("click", function(){
-      var lit = room.classList.toggle("lit");
-      if (hand) hand.classList.remove("reach");
-      btn.setAttribute("aria-pressed", lit ? "true" : "false");
-      btn.textContent = lit ? "Погасить свет" : "Включить свет";
-      hint.textContent = lit ? "теперь можно прочитать весь фрагмент" : cursorHint;
-    });
-    grimMotion.subscribe(function(active){ if (!active && hand) hand.classList.remove("reach"); });
-    room.classList.add("interactive");
-    btn.hidden = false;
-  })();
-
-  // обложки поворачиваются к свету
-  (function(){
-    if (window.matchMedia("(pointer: coarse)").matches) return;
-    document.querySelectorAll(".cover-link").forEach(function(link){
-      var cover = link.querySelector(".cover");
-      if (!cover) return;
-      var glare = cover.querySelector(".glare");
-      link.addEventListener("pointermove", function(e){
-        if (!grimMotion.active()) return;
-        var r = link.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width;
-        var py = (e.clientY - r.top) / r.height;
-        cover.style.transform = "translateY(-8px) rotateX(" + ((0.5 - py) * 8).toFixed(2) +
-          "deg) rotateY(" + ((px - 0.5) * 8).toFixed(2) + "deg)";
-        if (glare) {
-          glare.style.setProperty("--gx", (px * 100).toFixed(1) + "%");
-          glare.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
-        }
-      });
-      link.addEventListener("pointerleave", function(){
-        cover.style.transform = "";
-      });
-      grimMotion.subscribe(function(active){ if (!active) cover.style.transform = ""; });
-    });
-  })();
-
-  // имя как неоновая вывеска: буквы мерцают
-  (function(){
-    var h1 = document.querySelector("h1");
-    var text = h1.textContent;
-    h1.setAttribute("aria-label", text);
-    h1.innerHTML = "";
-    text.split("").forEach(function(ch){
-      if (ch === " ") { h1.appendChild(document.createTextNode(" ")); return; }
-      var s = document.createElement("span");
-      s.className = "h1-letter";
-      s.setAttribute("aria-hidden", "true");
-      s.textContent = ch;
-      h1.appendChild(s);
-    });
-    var letters = h1.querySelectorAll(".h1-letter"), timer = null;
-    function flick(el){
-      if (!grimMotion.active()) return;
-      el.classList.remove("flick");
-      void el.offsetWidth;
-      el.classList.add("flick");
-    }
-    letters.forEach(function(l){
-      l.addEventListener("pointerenter", function(){ flick(l); });
-      l.addEventListener("animationend", function(){ l.classList.remove("flick"); });
-    });
-    function ambient(){
-        timer = setTimeout(function(){
-          if (!grimMotion.active()) return;
-          flick(letters[Math.floor(Math.random() * letters.length)]);
-          ambient();
-        }, 3500 + Math.random() * 4500);
-    }
-    grimMotion.subscribe(function(active){
-      clearTimeout(timer);
-      letters.forEach(function(l){ l.classList.remove("flick"); });
-      if (active) ambient();
-    });
-  })();
-
-  // фоновые видео-ленты: играют только когда видны на экране
-  (function(){
-    var bands = document.querySelectorAll(".ambience video");
-    if (!bands.length || !("IntersectionObserver" in window)) return;
-    bands.forEach(function(v){
-      var visible = false, version = 0, band = v.closest(".ambience");
-      function update(){
-        var ticket = ++version;
-        if (!visible || !grimMotion.active()) { v.pause(); band.classList.remove("playing"); return; }
-        v.play().then(function(){
-          if (ticket !== version) return;
-          if (visible && grimMotion.active()) band.classList.add("playing");
-          else v.pause();
-        }).catch(function(){ if (ticket === version) band.classList.remove("playing"); });
-      }
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(en){ visible = en.isIntersecting && en.intersectionRatio >= 0.25; update(); });
-      }, { threshold: [0, 0.25] });
-      io.observe(v);
-      grimMotion.subscribe(update);
-    });
-  })();
-
-  // оживающие обложки: на десктопе — при наведении, на сенсорных — когда книга в поле зрения
-  (function(){
-    var touch = window.matchMedia("(pointer: coarse)").matches;
-    document.querySelectorAll("[data-live]").forEach(function(cover){
-      var link = cover.closest("a") || cover;
-      var img = cover.querySelector("img");
-      if (!img) return;
-      var v = null, broken = false, hovered = false, focused = false, inView = false, version = 0;
-      function wanted(){ return grimMotion.active() && (focused || (touch ? inView : hovered)); }
-      function ensure(){
-        if (v || broken) return v;
-        v = document.createElement("video");
-        v.className = "live-media";
-        v.muted = true; v.loop = true; v.playsInline = true;
-        v.preload = "auto";
-        v.src = cover.getAttribute("data-live");
-        v.setAttribute("aria-hidden", "true");
-        v.addEventListener("error", function(){
-          broken = true;
-          if (v) { v.remove(); v = null; }
-        }, { once:true });
-        img.insertAdjacentElement("afterend", v);
-        return v;
-      }
-      function update(){
-        var ticket = ++version;
-        if (!wanted()) {
-          if (v) { v.classList.remove("on"); v.pause(); }
-          return;
-        }
-        var vv = ensure();
-        if (!vv) return;
-        vv.play().then(function(){
-          if (ticket !== version) return;
-          if (wanted()) vv.classList.add("on"); else vv.pause();
-        }).catch(function(){ if (ticket === version) vv.classList.remove("on"); });
-      }
-      if (touch && "IntersectionObserver" in window) {
-        var io = new IntersectionObserver(function(entries){
-          entries.forEach(function(en){
-            inView = en.isIntersecting && en.intersectionRatio >= 0.6;
-            update();
-          });
-        }, { threshold: [0, 0.6] });
-        io.observe(cover);
-      } else {
-        link.addEventListener("pointerenter", function(){ hovered = true; update(); });
-        link.addEventListener("pointerleave", function(){ hovered = false; update(); });
-      }
-      link.addEventListener("focusin", function(){ focused = true; update(); });
-      link.addEventListener("focusout", function(){ focused = false; update(); });
-      grimMotion.subscribe(update);
-    });
-  })();
-
-  // появление секций при скролле
-  (function(){
-    var els = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window)) {
-      els.forEach(function(e){ e.classList.add("on"); });
-      return;
-    }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (en.isIntersecting) { en.target.classList.add("on"); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.15 });
-    els.forEach(function(e){ e.classList.add("reveal-ready"); io.observe(e); });
-    grimMotion.subscribe(function(active){ if (!active) els.forEach(function(e){ e.classList.add("on"); }); });
-  })();
-</script>
+<script src="https://greg-grim-site.vercel.app/assets/js/site.js?v=20261106c" defer></script>
 
 </body>
 </html>

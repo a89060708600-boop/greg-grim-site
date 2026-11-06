@@ -1,0 +1,90 @@
+/* Страницы книг: тот же ночной свет, спокойное место для чтения. */
+.book-page::after{display:none}
+.book-page main{padding-top:60px}
+.book-page h1{font-size:clamp(2.65rem,6.5vw,4.75rem);line-height:1.08;letter-spacing:.015em;text-shadow:none;overflow-wrap:normal}
+.book-page h2{font-size:clamp(1.8rem,4vw,2.65rem);line-height:1.15;letter-spacing:.015em;text-transform:none}
+.book-page h3{font-family:var(--display);font-weight:500;font-size:clamp(1.45rem,3vw,1.85rem);line-height:1.25;letter-spacing:.015em}
+.book-page p+p{margin-top:1em}
+.book-page section{padding:clamp(3.25rem,6vw,5.5rem) 0}
+.book-page .btn{font-size:.72rem;letter-spacing:.035em;min-height:44px;text-align:center}
+.book-page .nav{gap:1rem}
+.book-page .nav-links{gap:clamp(.8rem,2vw,1.5rem)}
+.book-page .nav-links a{letter-spacing:.035em}
+.book-page .colophon{padding-bottom:2rem}
+.breadcrumbs{display:flex;flex-wrap:wrap;gap:.4rem .7rem;padding-top:2rem;font-family:var(--mono);font-size:.68rem;color:var(--fog)}
+.breadcrumbs a{color:var(--fog)}
+.breadcrumbs a:hover{color:var(--lamp)}
+.book-intro{display:grid;grid-template-columns:minmax(170px,285px) minmax(0,1fr);align-items:start;gap:clamp(2rem,6vw,5rem)}
+.book-jacket{display:block;width:100%;height:auto;border:1px solid var(--line);box-shadow:0 20px 45px -20px #000}
+.book-intro .eyebrow{letter-spacing:.13em;font-size:.68rem;margin-bottom:1rem}
+.book-intro h1{margin-bottom:1.4rem}
+.book-intro-copy{max-width:35em;min-width:0}
+.book-lead{font-size:clamp(1.25rem,2.5vw,1.5rem);line-height:1.55;color:var(--paper)}
+.book-intro-copy>p:not(.book-lead){color:var(--fog);font-size:1.1rem}
+.book-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}
+.book-facts{display:flex;flex-wrap:wrap;gap:.6rem 1.25rem;margin-top:1.4rem;font-family:var(--mono);font-size:.65rem;line-height:1.8;color:var(--fog)}
+.book-facts span{display:inline-block}
+.edition-context{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:1rem;color:var(--fog)}
+.edition-context p+p{margin-top:.7em}
+.edition-context a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+.reading-section{border-block:1px solid var(--line);background:var(--soot)}
+.reading-heading{max-width:42rem;margin:0 auto 2rem}
+.reading-heading p{color:var(--fog);margin-top:1rem;font-size:1.1rem}
+.reading-sheet{max-width:42rem;margin:0 auto;border-top:1px solid var(--line);scroll-margin-top:90px}
+.reading-sheet+ .reading-sheet{margin-top:3rem}
+.reading-sheet summary{position:relative;cursor:pointer;padding:1.3rem 2rem 1.3rem 0;font-family:var(--mono);font-size:.75rem;line-height:1.8;color:var(--lamp);min-height:54px;list-style:none}
+.reading-sheet summary::-webkit-details-marker{display:none}
+.reading-sheet summary::after{content:'+';position:absolute;right:.2rem;top:1.2rem;font-size:1.1rem}
+.reading-sheet[open] summary::after{content:'−'}
+.reading-sheet summary:focus-visible{outline:2px solid var(--lamp);outline-offset:5px}
+.reading-sheet summary small{display:block;font-family:var(--body);font-size:1rem;font-style:italic;color:var(--fog);letter-spacing:0}
+.reading-text{padding:1rem 0 2rem;font-size:clamp(1.125rem,2vw,1.25rem);line-height:1.8;color:var(--paper);overflow-wrap:break-word}
+.reading-text .chapter-title{font-family:var(--display);font-size:1.5rem;font-weight:500;line-height:1.25;margin-bottom:1.75rem}
+.reading-text p{margin:0}
+.reading-text p+p{margin-top:.8em}
+.reading-text .scene-break{text-align:center;letter-spacing:.3em;margin:1.5em 0}
+.fragment-end{padding-top:1.5rem;border-top:1px solid var(--line);color:var(--fog);font-size:1rem}
+.fragment-end a{display:inline-block;margin-top:.8rem;font-family:var(--mono);font-size:.72rem;line-height:1.8}
+.series-hero{max-width:44rem}
+.series-hero h1{margin-bottom:1.5rem}
+.series-hero .eyebrow{letter-spacing:.17em;font-size:.7rem}
+.series-hero>p{font-size:1.2rem;color:var(--fog);line-height:1.7}
+.reading-order{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.25rem,4vw,3rem);margin-top:2.5rem;list-style:none}
+.order-item{border-top:1px solid var(--line);padding-top:1.5rem;display:grid;grid-template-columns:95px minmax(0,1fr);gap:1.2rem;align-items:start}
+.order-item img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.order-item .eyebrow{font-size:.62rem;letter-spacing:.08em;margin-bottom:.5rem}
+.order-item h2{font-size:clamp(1.6rem,3vw,2rem);line-height:1.2;margin-bottom:.8rem}
+.order-item p{font-size:1.05rem;color:var(--fog)}
+.order-item a.order-link{display:inline-block;font-family:var(--mono);font-size:.67rem;line-height:1.8;margin-top:1rem}
+.series-book{border-top:1px solid var(--line);scroll-margin-top:70px}
+.series-book .book-intro{grid-template-columns:minmax(140px,220px) minmax(0,1fr)}
+.series-book .book-intro h2{margin-bottom:1.2rem}
+.series-book .reading-sheet{margin-top:3rem}
+.book-next{max-width:42rem;margin:0 auto}
+.book-next .eyebrow{font-size:.68rem;letter-spacing:.15em}
+.book-next p{font-size:1.15rem;line-height:1.7;color:var(--fog);margin-top:1.2rem}
+.book-next .book-actions{margin-top:1.5rem}
+.book-next+.book-next{margin-top:3rem;padding-top:3rem;border-top:1px solid var(--line)}
+.book-page .skip-link{font-family:var(--mono);font-size:.75rem}
+@media(max-width:760px){
+ .book-intro{grid-template-columns:minmax(130px,200px) minmax(0,1fr);gap:1.75rem}
+ .reading-order{grid-template-columns:1fr}
+ .order-item{grid-template-columns:82px minmax(0,1fr)}
+}
+@media(max-width:560px){
+ .breadcrumbs{padding-top:1.5rem;font-size:.63rem}
+ .book-intro,.series-book .book-intro{grid-template-columns:1fr;gap:2rem}
+ .book-intro>.book-jacket{width:180px;max-width:100%;justify-self:center}
+ .book-intro h1{font-size:2.75rem}
+ .book-actions{flex-direction:column;align-items:stretch}
+ .book-actions .btn{width:100%;font-size:.66rem;padding:.85rem .8rem}
+ .book-facts{gap:.4rem .8rem}
+ .reading-text{font-size:1.125rem;line-height:1.8}
+ .book-page .nav-links a{font-size:.64rem}
+ .book-page .nav{gap:.5rem}
+ .book-page .brand{gap:.5rem;font-size:.64rem;letter-spacing:.04em}
+ .book-page .brand-mark{width:26px;height:26px}
+ .order-item{gap:1rem}
+ .order-item h2{font-size:1.7rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

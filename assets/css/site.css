@@ -1,0 +1,632 @@
+:root{
+    --night:#0e1116;
+    --soot:#151a22;
+    --card:#1a2029;
+    --paper:#e7e1d3;
+    --fog:#98a1ac;
+    --lamp:#e2a53f;
+    --lamp-dim:#b57f2a;
+    --blood:#9d3438;
+    --cold:#9bb0c0;
+    --line:rgba(231,225,211,.13);
+    --display:"Oswald","Arial Narrow",sans-serif;
+    --body:"Alegreya",georgia,serif;
+    --mono:"IBM Plex Mono",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:92px}
+  body{
+    background:var(--night);
+    color:var(--paper);
+    font-family:var(--body);
+    font-size:1.0625rem;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--blood);color:var(--paper)}
+
+  /* плёночное зерно поверх всего */
+  body::after{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:200;
+    opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  }
+
+  a{color:var(--lamp);text-decoration:none}
+  a:hover{color:var(--paper)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--lamp);outline-offset:3px}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+
+  /* ---------- шапка ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:linear-gradient(to bottom,rgba(14,17,22,.94),rgba(14,17,22,.85));
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    min-height:60px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:1rem;
+    font-family:var(--mono);
+    font-size:.8rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--paper);
+  }
+  .brand b{color:var(--paper);font-weight:500}
+  .brand-mark{width:32px;height:32px;border-radius:50%;display:block}
+  .nav-links{display:flex;gap:clamp(1rem,3vw,2.25rem);list-style:none}
+  .nav-links a{
+    font-family:var(--mono);
+    font-size:.75rem;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--fog);
+  }
+  .nav-links a:hover{color:var(--lamp)}
+
+  /* ---------- хиро: фонарь ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:7rem 1rem 4rem;
+    overflow:hidden;
+  }
+  /* конус фонарного света */
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-25%;left:50%;
+    width:130vmin;height:130vmin;
+    transform:translateX(-50%);
+    background:radial-gradient(closest-side,rgba(226,165,63,.16),rgba(226,165,63,.05) 45%,transparent 70%);
+    animation:flicker 9s infinite;
+    pointer-events:none;
+  }
+  /* туман у земли */
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:0;left:0;right:0;height:38%;
+    background:linear-gradient(to top,rgba(21,26,34,.9),transparent);
+    pointer-events:none;
+  }
+  @keyframes flicker{
+    0%,100%{opacity:1}
+    3%{opacity:.55}
+    4%{opacity:1}
+    31%{opacity:.92}
+    32%{opacity:.6}
+    33%{opacity:1}
+    64%{opacity:.95}
+    78%{opacity:.7}
+    79%{opacity:1}
+  }
+  .hero-eyebrow{
+    font-family:var(--mono);
+    font-size:.8rem;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    color:var(--fog);
+    margin-bottom:2rem;
+  }
+  .hero-eyebrow em{font-style:normal;color:var(--blood)}
+  h1{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(3.4rem,13vw,9rem);
+    line-height:.95;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    text-shadow:0 0 60px rgba(226,165,63,.25);
+  }
+  .hero-tagline{
+    max-width:34em;
+    margin-top:2rem;
+    font-size:clamp(1.1rem,2.2vw,1.35rem);
+    font-style:italic;
+    color:var(--fog);
+  }
+  .hero-typed{
+    margin-top:2.5rem;
+    font-family:var(--mono);
+    font-size:.85rem;
+    letter-spacing:.08em;
+    color:var(--lamp);
+    min-height:1.4em;
+  }
+  .hero-typed .cursor{
+    display:inline-block;width:.55em;height:1.1em;
+    background:var(--lamp);
+    vertical-align:text-bottom;
+    animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+  .hero-cta{
+    margin-top:3rem;
+    display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+  }
+  .btn{
+    display:inline-block;
+    background:transparent;
+    cursor:pointer;
+    line-height:1.55;
+    font-family:var(--mono);
+    font-size:.8rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:.9rem 1.5rem;
+    border:1px solid var(--lamp-dim);
+    color:var(--lamp);
+    transition:background .25s,color .25s,box-shadow .25s;
+  }
+  .btn:hover{
+    background:var(--lamp);
+    color:var(--night);
+    box-shadow:0 0 30px rgba(193,163,120,.15);
+  }
+  .btn--ghost{border-color:var(--line);color:var(--fog)}
+  .btn--ghost:hover{background:transparent;color:var(--paper);border-color:var(--fog);box-shadow:none}
+
+  /* ---------- секции ---------- */
+  section{padding:clamp(4.5rem,9vw,7.5rem) 0;position:relative}
+  .section-head{margin-bottom:clamp(2.5rem,5vw,4rem)}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.75rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--lamp);
+    display:block;
+    margin-bottom:.9rem;
+  }
+  h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.9rem,4.5vw,3rem);
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    line-height:1.1;
+  }
+
+  /* ---------- книги ---------- */
+  #books{background:var(--soot);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .shelf{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));
+    gap:clamp(1.5rem,3vw,2.5rem);
+  }
+  .book{display:flex;flex-direction:column}
+  .cover{
+    position:relative;
+    aspect-ratio:2/3;
+    background:
+      radial-gradient(ellipse at 50% 30%, #232a35, #12161d 75%);
+    border:1px solid var(--line);
+    box-shadow:inset 6px 0 12px -6px rgba(0,0,0,.8), 0 14px 30px -14px rgba(0,0,0,.9);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:1.4rem 1.1rem 1.1rem;
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .book a.cover-link{display:block;color:inherit}
+  .book:hover .cover{
+    transform:translateY(-8px) rotate(-.6deg);
+    box-shadow:inset 6px 0 12px -6px rgba(0,0,0,.8),
+      0 24px 45px -16px rgba(0,0,0,.95),
+      0 0 45px -10px rgba(226,165,63,.28);
+  }
+  /* рамка старого покетбука (только для типографских обложек) */
+  .cover:not(.cover--img)::before{
+    content:"";
+    position:absolute;inset:9px;
+    border:1px solid rgba(226,165,63,.28);
+    pointer-events:none;
+  }
+  .cover--img{padding:0}
+  .cover-img{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  /* лёгкая виньетка поверх обложки, чтобы вписать её в темноту сайта */
+  .cover--img::after{
+    content:"";
+    position:absolute;inset:0;
+    box-shadow:inset 0 0 60px 10px rgba(10,13,18,.55);
+    pointer-events:none;
+  }
+  /* оживающая обложка: видео проявляется поверх статики при наведении */
+  .live-media{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;
+    opacity:0;
+    transition:opacity .55s ease;
+  }
+  .live-media.on{opacity:1}
+  .cover-genre{
+    font-family:var(--mono);
+    font-size:.62rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--fog);
+    text-align:center;
+  }
+  .cover-title{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.3rem,1.6vw,1.6rem);
+    line-height:1.15;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    text-align:center;
+    color:var(--paper);
+  }
+  .book--featured .cover-title{color:var(--lamp)}
+  .cover-author{
+    font-family:var(--mono);
+    font-size:.62rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--fog);
+    text-align:center;
+  }
+  .badge{
+    position:absolute;
+    top:-1px;right:14px;
+    font-family:var(--mono);
+    font-size:.6rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:.35rem .5rem .4rem;
+    background:#5a3e36;
+    color:var(--paper);
+  }
+  .badge--free{background:var(--lamp);color:var(--night)}
+  .book-meta{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.06em;
+    color:var(--fog);
+    margin-top:1.1rem;
+  }
+  .book-meta .star{color:var(--lamp)}
+  .book-teaser{
+    font-size:.95rem;
+    color:var(--fog);
+    font-style:italic;
+    margin-top:.5rem;
+    flex-grow:1;
+  }
+  .book-link{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin-top:.9rem;
+  }
+
+  /* ---------- об авторе ---------- */
+  #about .grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:clamp(2rem,6vw,5rem);
+    align-items:start;
+  }
+  #about p+p{margin-top:1.2em}
+  #about .lead{font-size:1.25rem;font-style:italic;color:var(--paper)}
+  .dossier{
+    border:1px solid var(--line);
+    background:var(--soot);
+    padding:1.75rem 1.5rem;
+    font-family:var(--mono);
+    font-size:.78rem;
+    line-height:2.1;
+    color:var(--fog);
+  }
+  .dossier-title{
+    color:var(--blood);
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+    padding-bottom:.7rem;
+    margin-bottom:.7rem;
+  }
+  .dossier b{color:var(--paper);font-weight:500}
+
+  /* ---------- цитата ---------- */
+  .quote-band{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(ellipse at 50% 120%, rgba(157,52,56,.12), transparent 60%),
+      var(--night);
+    text-align:center;
+  }
+  blockquote{
+    max-width:30em;
+    margin:0 auto;
+    font-size:clamp(1.4rem,3.4vw,2.1rem);
+    font-style:italic;
+    line-height:1.45;
+  }
+  blockquote footer{
+    margin-top:1.5rem;
+    font-family:var(--mono);
+    font-style:normal;
+    font-size:.75rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--fog);
+  }
+
+  /* ---------- контакт / подвал ---------- */
+  #contact{text-align:center}
+  #contact p{max-width:32em;margin:0 auto;color:var(--fog)}
+  .contact-row{
+    margin-top:2.5rem;
+    display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+  }
+  .colophon{
+    border-top:1px solid var(--line);
+    padding:2rem 0 5.5rem;
+    text-align:center;
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.1em;
+    color:var(--fog);
+  }
+  .colophon span{color:var(--fog)}
+
+  /* ---------- неоновая вывеска: буквы имени ---------- */
+  .h1-word{display:inline-block;white-space:nowrap}
+  .h1-letter{display:inline-block}
+  .h1-letter.flick{animation:letterFlick .5s steps(2,end)}
+  @keyframes letterFlick{
+    0%{opacity:1}20%{opacity:.2}30%{opacity:1}
+    50%{opacity:.45}60%{opacity:1}80%{opacity:.25}100%{opacity:1}
+  }
+
+  /* ---------- тёмная комната: фонарик ---------- */
+  #manuscript{background:#0a0d12;border-top:1px solid var(--line)}
+  .darkroom{
+    position:relative;
+    border:1px solid var(--line);
+    background:var(--soot);
+    padding:clamp(2rem,5vw,3.5rem);
+    overflow:hidden;
+    touch-action:pan-y;
+  }
+  .darkroom.interactive:not(.lit){cursor:none}
+  .darkroom .ms-label{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--lamp);
+    margin-bottom:1.5rem;
+  }
+  .darkroom .ms-text{
+    max-width:38em;
+    font-size:clamp(1.05rem,1.8vw,1.2rem);
+    line-height:1.85;
+  }
+  .darkroom .ms-text p+p{margin-top:1em}
+  /* костлявая рука прячется у правого края тёмной комнаты */
+  .dark-hand{
+    position:absolute;
+    right:0;
+    top:32%;
+    width:clamp(180px,42%,330px);
+    height:auto;
+    transform:translateX(106%) rotate(2deg);
+    transition:transform 2.4s cubic-bezier(.22,.6,.28,1);
+    pointer-events:none;
+  }
+  .dark-hand.reach{transform:translateX(16%) rotate(-3deg)}
+  .darkroom.lit .dark-hand{
+    transform:translateX(106%) rotate(2deg);
+    transition-duration:.45s;
+  }
+  .veil{
+    position:absolute;inset:0;
+    pointer-events:none;
+    background:radial-gradient(circle 140px at var(--x,-20%) var(--y,-20%),
+      rgba(10,13,18,0) 0,
+      rgba(10,13,18,.5) 45%,
+      rgba(10,13,18,.985) 72%);
+    opacity:0;
+    transition:opacity .7s ease;
+  }
+  .darkroom.interactive:not(.lit) .veil{opacity:1}
+  .darkroom.lit .veil{opacity:0}
+  .manuscript-hint{
+    display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;
+    margin-top:1.5rem;
+  }
+  .manuscript-hint .hint{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--fog);
+  }
+  .btn--small{padding:.6rem 1.2rem;font-size:.7rem}
+
+  /* ---------- глянец фонаря на обложках ---------- */
+  .cover-link{display:block;perspective:800px}
+  .cover .glare{
+    position:absolute;inset:0;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .3s;
+    background:radial-gradient(circle 150px at var(--gx,50%) var(--gy,40%),
+      rgba(226,165,63,.2), transparent 70%);
+  }
+  .book:hover .cover .glare{opacity:1}
+
+  /* ---------- фоновые видео-ленты ---------- */
+  .ambience{
+    position:relative;
+    height:52vh;
+    min-height:320px;
+    overflow:hidden;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .ambience-poster,.ambience video{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .ambience-poster{display:block}
+  .ambience video{
+    opacity:0;
+    transition:opacity 1.2s ease;
+  }
+  .ambience.playing video{opacity:1}
+  /* виньетки сверху и снизу, чтобы видео тонуло в ночи страницы */
+  .ambience::before,.ambience::after{
+    content:"";
+    position:absolute;left:0;right:0;height:30%;
+    z-index:2;pointer-events:none;
+  }
+  .ambience::before{top:0;background:linear-gradient(to bottom, var(--night), transparent)}
+  .ambience::after{bottom:0;background:linear-gradient(to top, var(--night), transparent)}
+  .ambience .amb-caption{
+    position:absolute;
+    left:50%;bottom:14%;
+    transform:translateX(-50%);
+    z-index:3;
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+    color:rgba(231,225,211,.75);
+    text-shadow:0 1px 8px rgba(0,0,0,.9);
+    white-space:nowrap;
+  }
+
+  /* ---------- появление при скролле ---------- */
+  .reveal{opacity:1;transform:none}
+  .reveal.reveal-ready{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.reveal-ready.on{opacity:1;transform:none}
+
+  /* ---------- первое чтение: новая редакция сказок ---------- */
+  .skip-link{position:fixed;top:-80px;left:1rem;z-index:300;background:var(--paper);color:var(--night);padding:.7rem 1rem}
+  .skip-link:focus{top:1rem;color:var(--night)}
+  .hero-frame{position:relative;z-index:1;width:100%}
+  .hero-tagline span{color:var(--cold)}
+  .hero-note{font-size:1rem;color:var(--fog);margin-top:1rem}
+  #start{background:var(--night);border-top:1px solid var(--line)}
+  .start-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2.5rem,7vw,6rem);align-items:center}
+  .start-cover{display:block;max-width:350px;justify-self:center;position:relative;width:100%;box-shadow:0 22px 65px rgba(0,0,0,.5)}
+  .start-cover::after{content:"";position:absolute;inset:0;border:1px solid rgba(230,223,207,.2);pointer-events:none}
+  .start-cover img{display:block;width:100%;height:auto}
+  .start-copy .eyebrow{color:var(--cold)}
+  .start-copy h2{font-size:clamp(2.1rem,4.5vw,3rem);line-height:1.1;margin-bottom:1.5rem}
+  .start-copy p{font-size:1.15rem;line-height:1.75;color:var(--fog);max-width:29em}
+  .start-copy p+p{margin-top:1rem}
+  .start-copy .start-lead{font-size:1.35rem;color:var(--paper);line-height:1.55}
+  .start-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+  .start-copy .start-actions .btn--solid{flex-basis:100%;text-align:center}
+  .btn--solid{background:var(--lamp);color:var(--night);border-color:var(--lamp)}
+  .btn--solid:hover{background:var(--paper);border-color:var(--paper);box-shadow:none}
+  .start-copy .edition-note{margin-top:1rem;font-size:.92rem;color:var(--fog)}
+  .book-title{font-family:var(--display);font-size:1.5rem;font-weight:500;line-height:1.2;letter-spacing:0;min-height:2.4em;margin-top:1rem;color:var(--paper)}
+  .book .book-meta{margin-top:.55rem;line-height:1.7;min-height:3.4em}
+  .book-teaser{font-size:1.05rem;margin-bottom:.9rem}
+  .book>.book-link{margin-top:auto}
+  .book-details{font-family:var(--mono);font-size:.7rem;line-height:1.7;margin-bottom:.6rem;color:var(--cold)}
+  .cover-stage{position:relative;min-width:0}
+  .cover-stage--featured{max-width:350px;width:100%;justify-self:center}
+  .cover-play-toggle{display:block;width:100%;min-height:44px;margin-top:.7rem;padding:.5rem .65rem;background:transparent;border:1px solid var(--line);color:var(--lamp);font-family:var(--mono);font-size:.65rem;line-height:1.5;cursor:pointer}
+  .cover-play-toggle:hover{border-color:var(--lamp)}
+  .cover-play-toggle:disabled{color:var(--fog);cursor:default}
+  .badge--complete{background:var(--cold);color:var(--night)}
+  .shelf-note{font-size:1.12rem;color:var(--fog);margin-top:1rem;max-width:38em}
+  .practice{display:grid;grid-template-columns:160px minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);border-top:1px solid var(--line);margin-top:4rem;padding-top:3rem;align-items:start}
+  .practice h3{font-family:var(--display);font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:500;line-height:1.15;letter-spacing:0;margin-bottom:1rem}
+  .practice p{color:var(--fog);max-width:36em;font-size:1.08rem}
+  .practice .cover{aspect-ratio:2400/3405}
+  .practice .eyebrow{font-size:.65rem;margin-bottom:.7rem}
+  .practice .start-actions{margin-top:1.4rem}
+  .practice .btn{font-size:.68rem;padding:.7rem 1rem}
+  .motion-controls{position:fixed;bottom:1.25rem;right:1.25rem;z-index:110}
+  .motion-toggle{background:var(--soot);border:1px solid var(--line);color:var(--paper);font-family:var(--mono);font-size:.66rem;padding:.65rem .85rem;min-height:44px;cursor:pointer;letter-spacing:.03em}
+  .motion-toggle:hover{border-color:var(--lamp);color:var(--lamp)}
+  [hidden]{display:none!important}
+  html[data-motion="off"]{scroll-behavior:auto}
+  html[data-motion="off"] *,html[data-motion="off"] *::before,html[data-motion="off"] *::after{animation:none!important;transition:none!important}
+  html[data-motion="off"] .dark-hand{display:none}
+  html[data-motion="off"] .ambience video{opacity:0!important}
+  html[data-page-hidden="true"] *,html[data-page-hidden="true"] *::before,html[data-page-hidden="true"] *::after{animation-play-state:paused!important}
+  html[data-motion="off"] .reveal{opacity:1;transform:none}
+  html[data-motion="off"] .cover{transform:none!important}
+  html[data-motion="off"] .live-media{opacity:0!important}
+  .dossier-title{color:var(--lamp)}
+  .dossier a{display:inline-block}
+  .reading-hubs{display:flex;gap:1rem 1.75rem;flex-wrap:wrap;justify-content:center;margin-top:2rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.04em}
+  .contact-monogram{width:76px;height:76px;border-radius:50%;display:block;margin:0 auto 1.8rem}
+  .dispatch{max-width:38em;margin:0 auto 2.5rem;padding:1.5rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:left}
+  .dispatch-date{display:block;font-family:var(--mono);font-size:.65rem;letter-spacing:.05em;color:var(--fog);margin-bottom:.7rem}
+  .dispatch h3{font-family:var(--display);font-weight:500;line-height:1.2;font-size:1.6rem;margin-bottom:.8rem}
+  #contact .dispatch p{margin:0;max-width:none;font-size:1.05rem}
+
+  @media (max-width:760px){
+    #about .grid{grid-template-columns:1fr}
+    .start-layout{grid-template-columns:1fr;gap:3rem}
+    .start-cover{max-width:270px}
+    .cover-stage--featured{max-width:270px}
+    .start-copy{max-width:35em;margin:0 auto}
+    .nav-links{gap:1rem}
+    .nav-links a{font-size:.68rem}
+  }
+  @media (max-width:560px){
+    .nav{min-height:60px;gap:.8rem}
+    .brand{gap:.6rem;font-size:.7rem;letter-spacing:.1em;white-space:nowrap}
+    .brand-mark{width:30px;height:30px}
+    .nav-secondary{display:none}
+    .nav-links{gap:.9rem}
+    .motion-controls{bottom:1rem;right:1rem}
+    .hero{min-height:100svh;padding:7rem 1rem 4rem}
+    .hero-eyebrow{font-size:.63rem;letter-spacing:.2em}
+    h1{font-size:clamp(3.4rem,13vw,4.5rem);letter-spacing:.06em}
+    .hero-tagline{font-size:1.2rem;max-width:20em;margin-left:auto;margin-right:auto}
+    .hero-typed{font-size:.69rem;letter-spacing:.02em;min-height:2.8em;max-width:26em;margin-left:auto;margin-right:auto}
+    .hero-cta{margin-top:1.5rem;gap:.7rem}
+    .hero-cta .btn{font-size:.65rem;padding:.8rem 1rem}
+    .ambience{height:38vh;min-height:230px}
+    .ambience .amb-caption{font-size:.6rem;letter-spacing:.13em;white-space:normal;width:90%;text-align:center}
+    .start-actions{flex-direction:column;align-items:stretch;text-align:center}
+    .start-copy .start-lead{font-size:1.2rem}
+    .start-copy p{font-size:1.08rem}
+    .contact-row{flex-direction:column;align-items:stretch}
+    .contact-row .btn{text-align:center}
+    .practice{grid-template-columns:1fr;gap:1.5rem}
+    .practice>.cover-stage,.practice>.cover-link{width:180px;max-width:100%;justify-self:center}
+    .practice h3{font-size:1.8rem}
+    .practice p{font-size:1rem}
+    .practice .start-actions{align-items:flex-start;text-align:left}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html:not([data-motion="on"]){scroll-behavior:auto}
+    html:not([data-motion="on"]) .hero::before,html:not([data-motion="on"]) .hero-typed .cursor,html:not([data-motion="on"]) .h1-letter.flick{animation:none}
+    html:not([data-motion="on"]) .reveal,html:not([data-motion="on"]) .reveal.reveal-ready{opacity:1;transform:none;transition:none}
+    html:not([data-motion="on"]) .cover,html:not([data-motion="on"]) .book:hover .cover{transition:none;transform:none}
+    html:not([data-motion="on"]) .dark-hand{display:none}
+    html:not([data-motion="on"]) .veil{transition:none}
+  }
