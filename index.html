@@ -418,7 +418,7 @@
   }
   .colophon{
     border-top:1px solid var(--line);
-    padding:2rem 0 2.5rem;
+    padding:2rem 0 5.5rem;
     text-align:center;
     font-family:var(--mono);
     font-size:.72rem;
@@ -595,8 +595,8 @@
   .practice .eyebrow{font-size:.65rem;margin-bottom:.7rem}
   .practice .start-actions{margin-top:1.4rem}
   .practice .btn{font-size:.68rem;padding:.7rem 1rem}
-  .motion-controls{position:absolute;top:6rem;right:max(1.25rem,calc((100vw - 1020px)/2));z-index:3}
-  .motion-toggle{background:var(--soot);border:1px solid var(--line);color:var(--paper);font-family:var(--mono);font-size:.66rem;padding:.5rem .75rem;cursor:pointer;letter-spacing:.03em}
+  .motion-controls{position:fixed;bottom:1.25rem;right:1.25rem;z-index:110}
+  .motion-toggle{background:var(--soot);border:1px solid var(--line);color:var(--paper);font-family:var(--mono);font-size:.66rem;padding:.65rem .85rem;min-height:44px;cursor:pointer;letter-spacing:.03em}
   .motion-toggle:hover{border-color:var(--lamp);color:var(--lamp)}
   [hidden]{display:none!important}
   html[data-motion="off"]{scroll-behavior:auto}
@@ -625,7 +625,7 @@
     .brand-mark{width:34px;height:34px}
     .nav-secondary{display:none}
     .nav-links{gap:.9rem}
-    .motion-controls{top:5rem;right:1.25rem}
+    .motion-controls{bottom:1rem;right:1rem}
     .hero{min-height:84svh;padding:7.5rem 1.25rem 3.5rem}
     .hero-frame{padding:2.8rem .5rem}
     .hero-frame::before,.hero-frame::after{width:9%}
