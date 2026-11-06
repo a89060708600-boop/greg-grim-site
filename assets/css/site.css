@@ -135,6 +135,8 @@
   .hero-tagline{
     max-width:34em;
     margin-top:2rem;
+    margin-left:auto;
+    margin-right:auto;
     font-size:clamp(1.1rem,2.2vw,1.35rem);
     font-style:italic;
     color:var(--fog);
