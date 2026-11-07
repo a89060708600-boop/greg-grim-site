@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://greggrim.ru/</loc>
-    <lastmod>2026-11-06</lastmod>
-  </url>
-  <url>
-    <loc>https://greggrim.ru/books/strashnye-skazki/</loc>
-    <lastmod>2026-11-06</lastmod>
-  </url>
-  <url>
-    <loc>https://greggrim.ru/books/nesushchie/</loc>
-    <lastmod>2026-11-06</lastmod>
-  </url>
-  <url>
-    <loc>https://greggrim.ru/stories/chyornaya-ruka/</loc>
-    <lastmod>2026-11-06</lastmod>
-  </url>
+  <url><loc>https://greggrim.ru/books/nesushchie/</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://greggrim.ru/books/strashnye-skazki/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/chetyre-podarka/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/chyornaya-ruka/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/devyat-s-polovinoy-let-nazad/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/igla/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/iznutri/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/mama-ne-plach/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/monetka-dlya-nishchego/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/nochnoe-kopyto/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/otvedi-menya-v-park/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/paradnye-pitera/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/shyopot/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/skazki-pionerskikh-lagerey/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/staraya-karga/</loc><lastmod>2026-11-07</lastmod></url>
+  <url><loc>https://greggrim.ru/stories/zerkalo/</loc><lastmod>2026-11-07</lastmod></url>
 </urlset>
